@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-10-04T07:10:47+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">konsolebox</title><subtitle>A burned-out programmer</subtitle><author><name>konsolebox</name></author><entry><title type="html">My thoughts on me finally using ‘.bash’ in most of my scripts</title><link href="http://localhost:4000/blog/2018/05/28/my-thoughts-on-me-finally-using-bash-in-most-of-my-scripts.html" rel="alternate" type="text/html" title="My thoughts on me finally using ‘.bash’ in most of my scripts" /><published>2018-05-28T07:15:27+00:00</published><updated>2018-05-28T07:15:27+00:00</updated><id>http://localhost:4000/blog/2018/05/28/my-thoughts-on-me-finally-using-bash-in-most-of-my-scripts</id><content type="html" xml:base="http://localhost:4000/blog/2018/05/28/my-thoughts-on-me-finally-using-bash-in-most-of-my-scripts.html">&lt;p&gt;I always thought that the &lt;code class=&quot;highlighter-rouge&quot;&gt;.sh&lt;/code&gt; filename extension is a &lt;em&gt;class&lt;/em&gt; type extension;
+meaning it can be used by any type of shell script that runs on a shell based
+on bourne shell.  The filename extension was not necessarily meant to be
+strictly used with POSIX shells only.  The earlier shells started with very
+basic features and kept improving.  &lt;code class=&quot;highlighter-rouge&quot;&gt;$()&lt;/code&gt; for example was not available before.&lt;/p&gt;
+
+&lt;p&gt;What I try to point out is that there is no strict or official rule for this.
+Bash, much like Zsh and Ksh may have hugely deviated from the other, more basic
+shells, but it still doesn’t mean that scripts that run with them cannot use
+the &lt;code class=&quot;highlighter-rouge&quot;&gt;.sh&lt;/code&gt; extension.  &lt;code class=&quot;highlighter-rouge&quot;&gt;.sh&lt;/code&gt; after all is generic, much like &lt;code class=&quot;highlighter-rouge&quot;&gt;.awk&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;It is indeed wise to use &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash&lt;/code&gt; for scripts that rely on the features of Bash
+since it adds distinguishability, but it’s still not mandatory or official.
+No one can declare it to be like it (or almost close to being like it) when it
+isn’t.  We try to maintain consistency here.&lt;/p&gt;
+
+&lt;p&gt;I do acknowledge its usefulness.  Besides, the idea of using the extension is
+not new to me.  Shell Script Loader does use &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash&lt;/code&gt; for scripts that are meant
+to work with Bash.  I also thought about renaming my module scripts in PlayShell
+when I thought about making it compatible with different types of shells.  And
+that was in 2006 or 2008.&lt;/p&gt;
+
+&lt;p&gt;I however didn’t find much importance in using the extension by default right
+away, since I never really used other shells besides Bash.  And &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash&lt;/code&gt; just
+adds two characters to filenames.  I also thought Bash was the only significant
+shell in the Linux world.  I found that true, at least before Zsh released 5.0
+(or maybe a little earlier) and adapted some important array parameter expansion
+syntaxes from Ksh/Bash; and also when only few talked about compatiblity and
+POSIXism.&lt;/p&gt;
+
+&lt;p&gt;But I now start to find it to become more necessary, especially with my publicly
+shared scripts.&lt;/p&gt;
+
+&lt;p&gt;Before I wrote this, I already updated all my shared
+&lt;a href=&quot;https://github.com/konsolebox/scripts&quot;&gt;scripts&lt;/a&gt; to use &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash&lt;/code&gt; as their
+filename extension.  I also updated the overlay and other stuff that refers to
+them.  And I already have a development version of PlayShell that already has
+every bash-based script renamed to &lt;code class=&quot;highlighter-rouge&quot;&gt;*.bash&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;My final say on this is that it is indeed helpful to use specialized extension
+names for shell scripts, especially when they are shared to other people.
+However if it’s only for personal use, I say that it’s still up for the user
+to decide what would be most comfortable for him/her to use.  And if there’s a
+crusade to make &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash&lt;/code&gt; an &lt;em&gt;official&lt;/em&gt; filename extension for Bash, I wouldn’t be
+part of it.  Using the filename extension should be nothing more than a good
+recommendation.&lt;/p&gt;</content><author><name>konsolebox</name></author><category term="blog" /><category term="journal bash shell thoughts opinion" /><summary type="html">I always thought that the .sh filename extension is a class type extension; meaning it can be used by any type of shell script that runs on a shell based on bourne shell. The filename extension was not necessarily meant to be strictly used with POSIX shells only. The earlier shells started with very basic features and kept improving. $() for example was not available before.</summary></entry><entry><title type="html">A set of patches for Geany</title><link href="http://localhost:4000/blog/2016/12/03/a-set-of-patches-for-geany.html" rel="alternate" type="text/html" title="A set of patches for Geany" /><published>2016-12-03T08:23:41+00:00</published><updated>2016-12-03T08:23:41+00:00</updated><id>http://localhost:4000/blog/2016/12/03/a-set-of-patches-for-geany</id><content type="html" xml:base="http://localhost:4000/blog/2016/12/03/a-set-of-patches-for-geany.html">&lt;p&gt;Last July, I started creating more &lt;a href=&quot;https://github.com/konsolebox/geany/branches&quot;&gt;enhancements for Geany&lt;/a&gt;, which I didn’t expect to end up being many.  Most of the patches (all actually) haven’t been merged to upstream, so I thought about creating my personal compilation for them instead, and it’s in &lt;a href=&quot;https://github.com/konsolebox/geany-patches&quot;&gt;geany-patches&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The changes I made basically became stable around August or September, but it was only now that I thought about creating the compilations when I rebased the changes to 1.29, and when I fixed a sneaky bug in the in-place renaming of documents.&lt;/p&gt;
+
+&lt;p&gt;The major features provided in these patches include the capability to sort document tabs, and the added commands, or the enhancements added to the commands (both in File-menu and in the Document’s context menu) that enhances opening, closing, saving, reloading, renaming, cloning, and deleting of documents.  See &lt;a href=&quot;https://github.com/konsolebox/geany-patches/blob/master/README.md&quot;&gt;README.md&lt;/a&gt; for the complete list of changes.&lt;/p&gt;
+
+&lt;p&gt;These are some of its screenshots:&lt;/p&gt;
+
+&lt;style&gt;
+	.screenshots {
+		display: flex;
+		display: -webkit-flex;
+		-webkit-flex-flow: row wrap;
+		flex-flow: row wrap;
+		height: auto;
+		margin-bottom: 10px;
+	}
+
+	.screenshots img {
+		margin: 5px;
+	}
+&lt;/style&gt;
+
+&lt;div class=&quot;screenshots&quot;&gt;
+	&lt;a href=&quot;/images/geany-patches/snapshots/47aff2b2e9f2e42154577e592aa7d498bb8dea5c.png&quot; data-lightbox=&quot;screenshots&quot; data-title=&quot;&quot;&gt;&lt;img src=&quot;/images/geany-patches/snapshots/47aff2b2e9f2e42154577e592aa7d498bb8dea5c-200.jpg&quot; alt=&quot;47aff2b2e9f2e42154577e592aa7d498bb8dea5c&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;/images/geany-patches/snapshots/af366bdb91b128175bd9952dff16fd1782e78d29.png&quot; data-lightbox=&quot;screenshots&quot; data-title=&quot;&quot;&gt;&lt;img src=&quot;/images/geany-patches/snapshots/af366bdb91b128175bd9952dff16fd1782e78d29-200.jpg&quot; alt=&quot;af366bdb91b128175bd9952dff16fd1782e78d29&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;/images/geany-patches/snapshots/be0f4d44a7cded986221a8b4f5b50d409e86fa3a.png&quot; data-lightbox=&quot;screenshots&quot; data-title=&quot;&quot;&gt;&lt;img src=&quot;/images/geany-patches/snapshots/be0f4d44a7cded986221a8b4f5b50d409e86fa3a-200.jpg&quot; alt=&quot;be0f4d44a7cded986221a8b4f5b50d409e86fa3a&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;/images/geany-patches/snapshots/4219c2f848234990f312fb4f595d116bcf66d588.png&quot; data-lightbox=&quot;screenshots&quot; data-title=&quot;&quot;&gt;&lt;img src=&quot;/images/geany-patches/snapshots/4219c2f848234990f312fb4f595d116bcf66d588-200.jpg&quot; alt=&quot;4219c2f848234990f312fb4f595d116bcf66d588&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;/images/geany-patches/snapshots/859ca8376b10d557fdb5aede565d222a188c47b3.png&quot; data-lightbox=&quot;screenshots&quot; data-title=&quot;&quot;&gt;&lt;img src=&quot;/images/geany-patches/snapshots/859ca8376b10d557fdb5aede565d222a188c47b3-200.jpg&quot; alt=&quot;859ca8376b10d557fdb5aede565d222a188c47b3&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;/images/geany-patches/snapshots/d8b72883ee9beda23edcda69c9c10c0ac14bba54.png&quot; data-lightbox=&quot;screenshots&quot; data-title=&quot;&quot;&gt;&lt;img src=&quot;/images/geany-patches/snapshots/d8b72883ee9beda23edcda69c9c10c0ac14bba54-200.jpg&quot; alt=&quot;d8b72883ee9beda23edcda69c9c10c0ac14bba54&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;/images/geany-patches/snapshots/2e65feef4973ae29cb6727cbb2f9230f478e7eff.png&quot; data-lightbox=&quot;screenshots&quot; data-title=&quot;&quot;&gt;&lt;img src=&quot;/images/geany-patches/snapshots/2e65feef4973ae29cb6727cbb2f9230f478e7eff-200.jpg&quot; alt=&quot;2e65feef4973ae29cb6727cbb2f9230f478e7eff&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;easy-installation-for-gentoo-users&quot;&gt;Easy installation for Gentoo users&lt;/h1&gt;
+
+&lt;p&gt;If you’re using Gentoo or any of its compatible distros that support &lt;a href=&quot;https://wiki.gentoo.org/wiki/Layman&quot;&gt;layman&lt;/a&gt;, you can build and install the package along with my patches by using my overlay, and enabling the &lt;code class=&quot;highlighter-rouge&quot;&gt;konsolebox&lt;/code&gt; USE flag:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Add the overlay with layman.
+layman -a konsolebox
+
+# Enable the keyword.
+echo 'dev-util/geany::konsolebox' &amp;gt; /etc/portage/package.keywords/dev-util.geany::konsolebox
+
+# Enable the USE flag.
+echo 'dev-util/geany::konsolebox konsolebox' &amp;gt; /etc/portage/package.use/dev-util.geany::konsolebox
+
+# Install.
+emerge -av dev-util/geany::konsolebox
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;directly-getting-the-patched-source-code&quot;&gt;Directly getting the patched source code&lt;/h1&gt;
+
+&lt;p&gt;If you like, you can directly fetch the repository where I apply the patches, or download it in a ZIP archive with Github.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/konsolebox/geany/tree/master&quot;&gt;master&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/konsolebox/geany/tree/master%401.29&quot;&gt;master@1.29&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/konsolebox/geany/tree/testing&quot;&gt;testing&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/konsolebox/geany/tree/testing&quot;&gt;testing@1.29&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Testing branches tend have more recent updates, while the master branches are more tested.  But sometimes they’re just patched together when a critical bug is needed to be fixed.&lt;/p&gt;
+
+&lt;p&gt;The suffixes like &lt;code class=&quot;highlighter-rouge&quot;&gt;@1.29&lt;/code&gt; refer to the release version of Geany, and the patches are rebased against that version.  These branches don’t include the upstream changes in Geany that were made after the release, unless I explicitly forward some of the critical updates to them.&lt;/p&gt;
+
+&lt;p&gt;The branches without those suffixes on the other hand are meant to be updated with the recent changes upstream.&lt;/p&gt;</content><author><name>konsolebox</name></author><category term="blog" /><category term="journal geany editor" /><summary type="html">Last July, I started creating more enhancements for Geany, which I didn’t expect to end up being many. Most of the patches (all actually) haven’t been merged to upstream, so I thought about creating my personal compilation for them instead, and it’s in geany-patches.</summary></entry><entry><title type="html">Setting up multiple instances of dnscrypt-proxy with dnscrypt-proxy-multi</title><link href="http://localhost:4000/blog/2016/06/02/setting-up-multiple-instances-of-dnscrypt-proxy-with-dnscrypt-proxy-multi.html" rel="alternate" type="text/html" title="Setting up multiple instances of dnscrypt-proxy with dnscrypt-proxy-multi" /><published>2016-06-02T08:51:02+00:00</published><updated>2016-06-02T08:51:02+00:00</updated><id>http://localhost:4000/blog/2016/06/02/setting-up-multiple-instances-of-dnscrypt-proxy-with-dnscrypt-proxy-multi</id><content type="html" xml:base="http://localhost:4000/blog/2016/06/02/setting-up-multiple-instances-of-dnscrypt-proxy-with-dnscrypt-proxy-multi.html">&lt;p&gt;&lt;a href=&quot;https://dnscrypt.org/&quot;&gt;DNSCrypt&lt;/a&gt; has become the most ideal solution for having secure DNS resolving sessions.  The protocol has not been submitted to IETF, but a lot of people has already started using it, and multiple client and server implementations already exist.&lt;/p&gt;
+
+&lt;p&gt;DNSCrypt is simply a protocol that allows authentication and encryption between two parties - the service which most of the time is the resolver, and the client which requests for domain names to be resolved.  Rather than creating a local server of &lt;code class=&quot;highlighter-rouge&quot;&gt;named&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;unbound&lt;/code&gt; that recursively resolves domain names in the open, it would be more practical to just rely on another public service that supports DNSCrypt, since traffic with a normal DNS protocol is open to eavesdropping (from unwanted parties like your ISP), and forgery.  Note that even DNSSec is not encrypted, and that not all domain names support DNSSec.  You also have to consider the latency when a local DNS server resolves things manually.  You might also consider connecting through &lt;a href=&quot;https://www.torproject.org/&quot;&gt;Tor&lt;/a&gt;, but Tor generally does not support UDP, and falling back to TCP may not always be allowed by DNS servers.  The latency even becomes worse with Tor.&lt;/p&gt;
+
+&lt;p&gt;So DNSCrypt is indeed the most practical solution, but relying on free public services won’t guarantee uptime and reliability.  Some services become inaccessible or unresponsive from time to time.  Some also become unable to resolve domain names.  This is why I came up with the idea of using multiple instances of &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; to connect to those services, so one service can fill up the absence of another once they go offline.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/konsolebox/scripts/blob/master/dnscrypt-proxy-multi.rb&quot;&gt;dnscrypt-proxy-multi&lt;/a&gt; is a Ruby script that I created to do the task.  It extracts entries from a database or resolvers list, and then checks those entries if the services they point to is available, i.e., if the port the service listens to is open.&lt;/p&gt;
+
+&lt;figure class=&quot;right&quot;&gt;
+	&lt;img src=&quot;/images/various/202f58903cc0073f5f1b1be0dc2c1c9ce6d0227f.png&quot; alt=&quot;[ dnscrypt-proxy netstat ]&quot; /&gt;
+	&lt;figcaption&gt;Netstat output showing instances of dnscrypt-proxy&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;After discovering the services, &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt; creates the instances of &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; that would connect to those services, in the order of how fast the services have responded from the port check.  Once an instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; is created, it can be optionally checked for its capability to resolve specific domain names through the &lt;code class=&quot;highlighter-rouge&quot;&gt;--resolver-check&lt;/code&gt; option.  If an instance fails to resolve a domain name, it gets terminated, and the service that it has connected to would be ignored.&lt;/p&gt;
+
+&lt;p&gt;Once all the required instances are up, &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt; goes idle and just waits for all of them to terminate.&lt;/p&gt;
+
+&lt;h2 id=&quot;installing-dnscrypt-proxy-multi&quot;&gt;Installing dnscrypt-proxy-multi&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt; can be downloaded using the &lt;a href=&quot;https://raw.githubusercontent.com/konsolebox/scripts/master/dnscrypt-proxy-multi.rb&quot;&gt;browser&lt;/a&gt;, or by using &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;wget&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -O https://raw.githubusercontent.com/konsolebox/scripts/master/dnscrypt-proxy-multi.rb
+wget https://raw.githubusercontent.com/konsolebox/scripts/master/dnscrypt-proxy-multi.rb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After downloading, you can install it to &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/bin&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;install -m 0755 dnscrypt-proxy-multi.rb /usr/local/bin/dnscrypt-proxy-multi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you’re using Gentoo, you can install the &lt;code class=&quot;highlighter-rouge&quot;&gt;konsolebox&lt;/code&gt; overlay through layman:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;layman -a konsolebox
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Or by placing &lt;a href=&quot;https://github.com/konsolebox/overlay/blob/master/konsolebox.conf.example&quot;&gt;konsolebox.conf&lt;/a&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/portage/repos.conf/&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -o /etc/portage/repos.conf/konsolebox.conf \
+	https://raw.githubusercontent.com/konsolebox/overlay/master/konsolebox.conf.example
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The file should contain something like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[konsolebox]
+auto-sync = yes
+location = /var/local/overlays/konsolebox
+masters = gentoo
+sync-type = git
+sync-uri = git://github.com/konsolebox/overlay.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can change &lt;code class=&quot;highlighter-rouge&quot;&gt;location&lt;/code&gt; to refer a different directory, and also &lt;code class=&quot;highlighter-rouge&quot;&gt;sync-uri&lt;/code&gt; to use &lt;code class=&quot;highlighter-rouge&quot;&gt;https://&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;git://&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;After checking the file, you can update the repositories:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;emerge --sync
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And then add &lt;code class=&quot;highlighter-rouge&quot;&gt;net-dns/dnscrypt-proxy-multi **&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/portage/package.keywords&lt;/code&gt;.  Example:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo 'net-dns/dnscrypt-proxy-multi **' &amp;gt; \
+		/etc/portage/package.keywords/net-dns.dnscrypt-proxy-multi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then install the package like the usual &lt;code class=&quot;highlighter-rouge&quot;&gt;emerge&lt;/code&gt; method:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;emerge net-dns/dnscrypt-proxy-multi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;required-version-of-dnscrypt-proxy&quot;&gt;Required version of dnscrypt-proxy&lt;/h2&gt;
+
+&lt;p&gt;Most of &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt;’s functions work well with the latest release version of &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; which as of this writing is 1.6.1, but the &lt;code class=&quot;highlighter-rouge&quot;&gt;--dnscrypt-proxy-syslog&lt;/code&gt; feature requires a new function which is currently only available in the latest source code of &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt;, which is in its own &lt;a href=&quot;https://github.com/jedisct1/dnscrypt-proxy&quot;&gt;repository in GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Installing the newest version from source would depend on the distro, but if you’re using Gentoo, you can just follow the steps above.  Just target &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt;, instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also check if 1.6.2, or a newer version is already available,&lt;/p&gt;
+
+&lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
+
+&lt;p&gt;Here’s the output of &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi --help&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dnscrypt-proxy-multi 2016-06-01
+Runs multiple instances of dnscrypt-proxy.
+
+Usage: /usr/bin/dnscrypt-proxy-multi [options]
+
+Options:
+-c, --resolver-check=FQDN[,FQDN2][/TIMEOUT[/WAIT]]
+    Check instances of dnscrypt-proxy if they can resolve all specified FQDN
+    and replace them with another instance that targets another resolver entry
+    if they don't.  Default timeout is 5.0.  Default amount of wait-time to
+    allow an instance to load and initialize before checking it is 0.1.
+-C, --change-owner=USER[:GROUP]
+    Change ownership of directories to specified user-group before opening files
+    instantiating dnscrypt-proxy's, and dropping privilege to a user if
+    configured.
+-d, --dnscrypt-proxy=PATH
+    Set path to dnscrypt-proxy executable.
+    Default is &quot;/usr/sbin/dnscrypt-proxy&quot;.
+-D, --instance-delay=SECONDS
+    Wait SECONDS seconds before creating the next instance of dnscrypt-proxy.
+    Default is 0.0.
+-g, --group=GROUP
+    Drop priviliges to GROUP before creating instances of dnscrypt-proxy.
+-G, --debug
+    Show debug messages.
+-i, --local-ip=RANGE
+    Set range of IP addresses to listen to.  Default is &quot;127.0.100.1-254&quot;.
+    Example: &quot;127.0.1-254.1-254,10.0.0.1&quot;
+-I, --ignore-ip-format
+    Do not check if a local IP address starts or ends with 0 or 255.
+-l, --log [LOG_DIR]
+    Enable logging files to LOG_DIR.
+    Default directory is &quot;/var/log/dnscrypt-proxy-multi&quot;.
+-L, --log-level=LEVEL
+    When logging is enabled, tell dnscrypt-proxy to use log level LEVEL.
+    Default level is 6.  See dnscrypt-proxy(8) for info.
+-m, --max-instances=N
+    Set maximum number of dnscrypt-proxy instances.  Default is 10.
+-o, --log-output=FILE
+    When logging is enabled, write main log output to FILE.
+    Default is &quot;&amp;lt;LOG_DIR&amp;gt;/dnscrypt-proxy-multi.log&quot;.
+-O, --log-overwrite
+    When logging is enabled, do not append output to main log-file.
+-p, --local-port=RANGE
+    Set range of ports to listen to.
+    Default is &quot;53&quot;.  Example: &quot;2053,5300-5399&quot;
+-r, --resolvers-list=PATH
+    Set resolvers list file to use.
+    Default is &quot;/usr/share/dnscrypt-proxy/dnscrypt-resolvers.csv&quot;.
+-R, --resolvers-list-encoding
+    Set encoding of resolvers list.  Default is &quot;utf-8&quot;.
+-s, --port-check-async=N
+    Set number of port-check queries to send simultaneously.  Default is 10.
+-S, --syslog [PREFIX]
+    Log messages to system log.  PREFIX gets inserted at the beginning of every
+    message sent to syslog if it's specified.  See also -Z.
+-t, --port-check-timeout=SECONDS
+    Set timeout when waiting for a port-check reply.  Default is 5.0.
+-u, --user=USER
+    Drop priviliges to USER before creating instances of dnscrypt-proxy.
+    Note that this might prevent dnscrypt-proxy from being able to listen to
+    ports lower than 1024.
+-U, --dnscrypt-proxy-user=USER
+    Tell dnscrypt-proxy to drop privileges as USER.
+    Please consider that this may or may not work with --user.
+-v, --verbose
+    Show verbose messages.
+-V, --version
+    Show version and exit.
+-w, --wait-for-connection=HOST[:PORT][,HOST2[:PORT2][,...]]
+    Wait until any of the specified hosts acknowledges connection, or responds
+    with an ICMP Echo reply if no port is specified.  Checking with ICMP needs
+    net-ping gem, and requires root/administrative privileges.
+-W, --write-pids [DIR]
+    Enable writing PID's to DIR.
+    Default directory is &quot;/var/run/dnscrypt-proxy-multi&quot;.
+-Z, --dnscrypt-proxy-syslog [PREFIX]
+    Tell dnscrypt-proxy to log messages to system log.  It is automatically
+    configured to have a prefix of '[REMOTE_IP:PORT]'. If PREFIX is specified,
+    it is added to it with a space as a separator.
+    Note that this disables file-logging in dnscrypt-proxy.
+-h, --help
+    Show this help info and exit.
+
+Notes:
+* Directories are automatically created recursively when needed.
+* Services are checked with TCP ports since TCP is a common fallback.
+* Local ports are first used up before the next IP address in range is used.
+* Local ports are not checked if they are currently in use.
+* Names of log files are created based on the remote address, while names of
+  PID files are based on the local address.
+* dnscrypt-proxy creates files as the calling user; not the one specified with
+  --user, so changing ownership of directories and existing files may not be
+  necessary.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;simple-usage-example&quot;&gt;Simple Usage Example&lt;/h2&gt;
+
+&lt;p&gt;Here’s a simple example of using &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dnscrypt-proxy-multi --local-ip=127.0.0.1 --local-port=5300-5309 \
+		--dnscrypt-proxy-user=dnscrypt --syslog --dnscrypt-proxy-syslog
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The command specifies that port 5300 to 5309 will be used by &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; to listen to for connections, and that &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; will drop its privilege to user &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt&lt;/code&gt;, and do &lt;code class=&quot;highlighter-rouge&quot;&gt;chroot(2)&lt;/code&gt; to its home directory.  See &lt;code class=&quot;highlighter-rouge&quot;&gt;--user&lt;/code&gt; option in &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy(8)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Both &lt;code class=&quot;highlighter-rouge&quot;&gt;--syslog&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;--dnscrypt-proxy-syslog&lt;/code&gt; specify that &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; use &lt;code class=&quot;highlighter-rouge&quot;&gt;syslog&lt;/code&gt; to log messages.&lt;/p&gt;
+
+&lt;h2 id=&quot;specifying-a-different-resolvers-list&quot;&gt;Specifying a different resolvers list&lt;/h2&gt;
+
+&lt;p&gt;Sometimes we would want to specify a custom resolvers list of our own.  For example, we may want the resolvers list to exclude those from OpenDNS to prevent restrictions.  This is the basic indiscriminate command to produce it:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;grep -vi opendns /usr/share/dnscrypt-proxy/dnscrypt-resolvers.csv &amp;gt; \
+		/var/local/dnscrypt-resolvers-custom.csv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we add the option &lt;code class=&quot;highlighter-rouge&quot;&gt;--resolvers-list&lt;/code&gt; to the command:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dnscrypt-proxy-multi --local-ip=127.0.0.1 --local-port=5300-5399 \
+		--dnscrypt-proxy-user=dnscrypt --syslog --dnscrypt-proxy-syslog \
+		--resolvers-list=/var/local/dnscrypt-resolvers-custom.csv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;checking-services-for-their-capability-to-resolve-domain-names&quot;&gt;Checking services for their capability to resolve domain names&lt;/h2&gt;
+
+&lt;p&gt;We can also configure &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt; to check if a service - that an instance of dnscrypt-proxy is connecting to - is capable of resolving domains.&lt;/p&gt;
+
+&lt;p&gt;The option’s format is &lt;code class=&quot;highlighter-rouge&quot;&gt;--resolver-check=FQDN[,FQDN2][/TIMEOUT[/WAIT]]&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Example usage:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--resolver-check=kernel.org,gentoo.org,disqus.com,a.disqus.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It would tell &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt; to check that the service is able to resolve all the FQDN’s (Fully Qualified Domain Names) specified above.  It would terminate the &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; process connecting to the service if it fails to resolve any of it.&lt;/p&gt;
+
+&lt;p&gt;We can also customize the amount of time (in seconds) that we can allow the service to respond.  Example is 10 seconds instead of 5:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--resolver-check=kernel.org,gentoo.org,disqus.com,a.disqus.com/10.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Note that a higher value means longer time for dnscrypt-proxy-multi to initialize.  On the other hand, it should also be considered that some services take longer time to respond since they need to make multiple recursive queries to other name servers when the information about an FQDN is not yet in the cache, or is no longer valid, so having a longer waiting time would also be sensible.&lt;/p&gt;
+
+&lt;h2 id=&quot;making-dnscrypt-proxy-multi-wait-for-connection-before-starting-up&quot;&gt;Making dnscrypt-proxy-multi wait for connection before starting up&lt;/h2&gt;
+
+&lt;p&gt;We can also make &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt; wait for a connection before it starts checking if DNS servers are available.&lt;/p&gt;
+
+&lt;p&gt;This is helpful during startup when Internet connection may not yet be active.&lt;/p&gt;
+
+&lt;p&gt;An example usage is &lt;code class=&quot;highlighter-rouge&quot;&gt;--wait-for-connection=208.67.220.220:53,208.67.222.222:53&lt;/code&gt;, which would allow &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt; to continue if a response is received from either of those addresses.&lt;/p&gt;
+
+&lt;p&gt;This will be the complete command so far:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dnscrypt-proxy-multi --local-ip=127.0.0.1 --local-port=5300-5399 \
+		--dnscrypt-proxy-user=dnscrypt --syslog --dnscrypt-proxy-syslog \
+		--resolvers-list=/var/local/dnscrypt-resolvers-custom.csv \
+		--resolver-check=kernel.org,gentoo.org,disqus.com,a.disqus.com \
+		--wait-for-connection=208.67.202.202:53,208.67.222.222:53
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here’s an example output after running the command:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# dnscrypt-proxy-multi --local-ip=127.0.0.1 --local-port=5300-5399 \
+&amp;gt; --dnscrypt-proxy-user=dnscrypt --syslog --dnscrypt-proxy-syslog \
+&amp;gt; --resolvers-list=/var/local/dnscrypt-resolvers-custom.csv \
+&amp;gt; --resolver-check=kernel.org,gentoo.org,disqus.com,a.disqus.com \
+&amp;gt; --wait-for-connection=208.67.202.202:53,208.67.222.222:53
+----------------------------------------
+Starting up.
+[Warning] Ignoring entry with invalid or unsupported resolver address: Resolver address
+[Warning] Using default port 443 for 51.254.115.48.
+[Warning] Using default port 443 for 208.67.220.220.
+[Warning] Using default port 443 for 208.67.220.123.
+[Warning] Ignoring entry with invalid or unsupported resolver address: [2620:0:ccc::2]
+[Warning] Using default port 443 for 113.20.6.2.
+[Warning] Using default port 443 for 113.20.8.17.
+[Warning] Using default port 443 for 162.221.207.228.
+[Warning] Using default port 443 for 212.83.175.31.
+[Warning] Using default port 443 for 195.154.61.33.
+[Warning] Using default port 443 for 185.60.147.77.
+[Warning] Using default port 443 for 46.165.222.246.
+[Warning] Using default port 443 for 212.129.46.86.
+[Warning] Using default port 443 for 212.129.46.32.
+[Warning] Using default port 443 for 95.141.47.58.
+[Warning] Using default port 443 for 173.234.159.235.
+[Warning] Using default port 443 for 173.234.56.115.
+[Warning] Using default port 443 for 70.32.38.67.
+[Warning] Using default port 443 for 108.62.19.131.
+[Warning] Using default port 443 for 76.164.234.11.
+[Warning] Using default port 443 for 104.238.194.235.
+[Warning] Using default port 443 for 217.12.203.133.
+[Warning] Using default port 443 for 81.2.237.32.
+[Warning] Using default port 443 for 82.211.31.248.
+[Warning] Using default port 443 for 185.137.15.105.
+[Warning] Using default port 443 for 77.66.108.93.
+[Warning] Using default port 443 for 85.25.105.193.
+[Warning] Using default port 443 for 37.235.49.61.
+[Warning] Using default port 443 for 31.14.133.188.
+[Warning] Using default port 443 for 89.111.13.60.
+[Warning] Using default port 443 for 178.17.170.133.
+[Warning] Using default port 443 for 185.14.29.140.
+[Warning] Using default port 443 for 77.81.104.121.
+[Warning] Using default port 443 for 41.79.69.13.
+[Warning] Using default port 443 for 217.12.210.54.
+[Warning] Using default port 443 for 77.66.84.233.
+[Warning] Ignoring entry with invalid or unsupported resolver address: [2001:1448:243::dc2]
+[Warning] Using default port 443 for 176.56.237.171.
+[Warning] Ignoring entry with invalid or unsupported resolver address: [2a00:d880:3:1::a6c1:2e89]
+[Warning] Using default port 443 for 212.47.228.136.
+[Warning] Using default port 443 for 185.121.177.177.
+[Warning] Using default port 443 for 185.121.177.53.
+[Warning] Using default port 443 for 79.133.43.124.
+[Warning] Using default port 443 for 172.81.176.146.
+[Warning] Ignoring entry with invalid or unsupported resolver address: [2602:ffb6:2:0:f816:3eff:fe23:ae28]
+[Warning] Using default port 443 for 185.97.7.7.
+[Warning] Using default port 443 for 185.115.125.185.
+[Warning] Using default port 443 for 93.170.96.119.
+[Warning] Using default port 443 for 95.154.236.104.
+[Warning] Using default port 443 for 103.53.199.71.
+[Warning] Using default port 443 for 217.78.6.191.
+[Warning] Using default port 443 for 91.247.228.155.
+[Warning] Using default port 443 for 185.99.132.5.
+[Warning] Ignoring entry with invalid or unsupported resolver address: [2a06:1280:bee1::dea:5]
+[Warning] Using default port 443 for 173.44.61.182.
+[Warning] Using default port 443 for 194.132.32.32.
+[Warning] Using default port 443 for 93.95.228.87.
+[Warning] Using default port 443 for 23.226.227.93.
+[Warning] Ignoring entry with invalid or unsupported resolver address: [2a02:7aa0:1619::c434:714c]:5353
+[Warning] Ignoring entry with invalid or unsupported resolver address: [2001:470:70:4ff::2]:2053
+[Warning] Using default port 443 for 40.68.125.220.
+Waiting for connection.
+Checking resolver address 51.254.115.48:443.
+Checking resolver address 208.67.220.220:443.
+Checking resolver address 208.67.220.123:443.
+Checking resolver address 208.67.220.220:53.
+Checking resolver address 113.20.6.2:443.
+Checking resolver address 113.20.8.17:443.
+Checking resolver address 162.221.207.228:443.
+Checking resolver address 212.83.175.31:443.
+Checking resolver address 195.154.61.33:443.
+Checking resolver address 185.60.147.77:443.
+Checking resolver address 46.165.222.246:443.
+Checking resolver address 212.129.46.86:443.
+Checking resolver address 212.129.46.32:443.
+Checking resolver address 95.141.47.58:443.
+Checking resolver address 173.234.159.235:443.
+Checking resolver address 173.234.56.115:443.
+Checking resolver address 70.32.38.67:443.
+Checking resolver address 108.62.19.131:443.
+Checking resolver address 76.164.234.11:443.
+Checking resolver address 104.238.194.235:443.
+Checking resolver address 217.12.203.133:443.
+Checking resolver address 81.2.237.32:443.
+Checking resolver address 82.211.31.248:443.
+Checking resolver address 185.137.15.105:443.
+Checking resolver address 77.66.108.93:443.
+Checking resolver address 37.187.0.40:54.
+Checking resolver address 85.25.105.193:443.
+Checking resolver address 37.235.49.61:443.
+Checking resolver address 31.14.133.188:443.
+Checking resolver address 89.111.13.60:443.
+Checking resolver address 178.17.170.67:54.
+Checking resolver address 95.85.9.86:80.
+Checking resolver address 185.83.217.248:5353.
+Checking resolver address 178.17.170.133:443.
+Checking resolver address 185.14.29.140:443.
+Checking resolver address 77.81.104.121:443.
+Checking resolver address 91.214.71.181:80.
+Checking resolver address 128.199.248.105:54.
+Checking resolver address 41.79.69.13:443.
+Checking resolver address 217.12.210.54:443.
+Checking resolver address 77.66.84.233:443.
+Checking resolver address 176.56.237.171:443.
+Checking resolver address 212.47.228.136:443.
+Checking resolver address 185.121.177.177:443.
+Checking resolver address 185.121.177.53:443.
+Checking resolver address 79.133.43.124:443.
+Checking resolver address 172.81.176.146:443.
+Checking resolver address 185.97.7.7:443.
+Checking resolver address 185.115.125.185:443.
+Checking resolver address 93.170.96.119:443.
+Checking resolver address 95.154.236.104:443.
+Checking resolver address 103.53.199.71:443.
+Checking resolver address 217.78.6.191:443.
+Checking resolver address 91.247.228.155:443.
+Checking resolver address 185.99.132.5:443.
+Checking resolver address 173.44.61.182:443.
+Checking resolver address 194.132.32.32:443.
+Checking resolver address 93.95.228.87:443.
+Checking resolver address 23.226.227.93:443.
+Checking resolver address 130.255.73.90:5353.
+Checking resolver address 46.227.67.134:55.
+Checking resolver address 93.115.92.252:5353.
+Checking resolver address 95.215.46.195:5353.
+Checking resolver address 45.55.117.60:8080.
+Checking resolver address 45.55.113.239:8080.
+Checking resolver address 178.216.201.222:2053.
+Checking resolver address 40.68.125.220:443.
+Checking resolver address 77.88.8.78:15353.
+Starting dnscrypt-proxy instance for 208.67.220.123:443 (127.0.0.1:5300).
+Checking if 208.67.220.123:443 (127.0.0.1:5300) can resolve kernel.org.
+Success: 194.44.204.199
+Checking if 208.67.220.123:443 (127.0.0.1:5300) can resolve gentoo.org.
+Success: 134.167.16.89
+Checking if 208.67.220.123:443 (127.0.0.1:5300) can resolve disqus.com.
+Success: 134.33.235.23
+Checking if 208.67.220.123:443 (127.0.0.1:5300) can resolve a.disqus.com.
+Success: 134.52.101.151
+Starting dnscrypt-proxy instance for 208.67.220.220:53 (127.0.0.1:5301).
+Checking if 208.67.220.220:53 (127.0.0.1:5301) can resolve kernel.org.
+Success: 194.44.204.199
+Checking if 208.67.220.220:53 (127.0.0.1:5301) can resolve gentoo.org.
+Success: 134.167.16.89
+Checking if 208.67.220.220:53 (127.0.0.1:5301) can resolve disqus.com.
+Success: 134.33.235.23
+Checking if 208.67.220.220:53 (127.0.0.1:5301) can resolve a.disqus.com.
+Success: 134.52.101.151
+Starting dnscrypt-proxy instance for 128.199.248.105:54 (127.0.0.1:5302).
+Checking if 128.199.248.105:54 (127.0.0.1:5302) can resolve kernel.org.
+Success: 194.44.204.199
+Checking if 128.199.248.105:54 (127.0.0.1:5302) can resolve gentoo.org.
+Success: 134.167.16.89
+Checking if 128.199.248.105:54 (127.0.0.1:5302) can resolve disqus.com.
+Success: 134.85.156.104
+Checking if 128.199.248.105:54 (127.0.0.1:5302) can resolve a.disqus.com.
+Success: 134.40.101.151
+Starting dnscrypt-proxy instance for 208.67.220.220:443 (127.0.0.1:5303).
+Checking if 208.67.220.220:443 (127.0.0.1:5303) can resolve kernel.org.
+Success: 194.44.204.199
+Checking if 208.67.220.220:443 (127.0.0.1:5303) can resolve gentoo.org.
+Success: 134.167.16.89
+Checking if 208.67.220.220:443 (127.0.0.1:5303) can resolve disqus.com.
+Success: 134.81.156.104
+Checking if 208.67.220.220:443 (127.0.0.1:5303) can resolve a.disqus.com.
+Success: 134.24.101.151
+Starting dnscrypt-proxy instance for 185.121.177.53:443 (127.0.0.1:5304).
+Checking if 185.121.177.53:443 (127.0.0.1:5304) can resolve kernel.org.
+Success: 194.44.204.199
+Checking if 185.121.177.53:443 (127.0.0.1:5304) can resolve gentoo.org.
+Success: 134.167.16.89
+Checking if 185.121.177.53:443 (127.0.0.1:5304) can resolve disqus.com.
+Success: 134.81.156.104
+Checking if 185.121.177.53:443 (127.0.0.1:5304) can resolve a.disqus.com.
+Success: 134.24.101.151
+Starting dnscrypt-proxy instance for 185.121.177.177:443 (127.0.0.1:5305).
+Checking if 185.121.177.177:443 (127.0.0.1:5305) can resolve kernel.org.
+Success: 194.44.204.199
+Checking if 185.121.177.177:443 (127.0.0.1:5305) can resolve gentoo.org.
+Success: 134.167.16.89
+Checking if 185.121.177.177:443 (127.0.0.1:5305) can resolve disqus.com.
+Success: 134.81.156.104
+Checking if 185.121.177.177:443 (127.0.0.1:5305) can resolve a.disqus.com.
+Success: 134.24.101.151
+Starting dnscrypt-proxy instance for 104.238.194.235:443 (127.0.0.1:5306).
+Checking if 104.238.194.235:443 (127.0.0.1:5306) can resolve kernel.org.
+Success: 69.4.20.149
+Checking if 104.238.194.235:443 (127.0.0.1:5306) can resolve gentoo.org.
+Success: 134.167.16.89
+Checking if 104.238.194.235:443 (127.0.0.1:5306) can resolve disqus.com.
+Success: 134.37.235.23
+Checking if 104.238.194.235:443 (127.0.0.1:5306) can resolve a.disqus.com.
+Success: 134.24.101.151
+Starting dnscrypt-proxy instance for 103.53.199.71:443 (127.0.0.1:5307).
+Checking if 103.53.199.71:443 (127.0.0.1:5307) can resolve kernel.org.
+Success: 194.44.204.199
+Checking if 103.53.199.71:443 (127.0.0.1:5307) can resolve gentoo.org.
+Success: 134.167.16.89
+Checking if 103.53.199.71:443 (127.0.0.1:5307) can resolve disqus.com.
+Success: 134.37.235.23
+Checking if 103.53.199.71:443 (127.0.0.1:5307) can resolve a.disqus.com.
+Success: 134.40.101.151
+Starting dnscrypt-proxy instance for 45.55.113.239:8080 (127.0.0.1:5308).
+Checking if 45.55.113.239:8080 (127.0.0.1:5308) can resolve kernel.org.
+Success: 194.44.204.199
+Checking if 45.55.113.239:8080 (127.0.0.1:5308) can resolve gentoo.org.
+Success: 134.167.16.89
+Checking if 45.55.113.239:8080 (127.0.0.1:5308) can resolve disqus.com.
+Success: 134.85.156.104
+Checking if 45.55.113.239:8080 (127.0.0.1:5308) can resolve a.disqus.com.
+Success: 134.40.101.151
+Starting dnscrypt-proxy instance for 23.226.227.93:443 (127.0.0.1:5309).
+Checking if 23.226.227.93:443 (127.0.0.1:5309) can resolve kernel.org.
+Success: 140.20.145.198
+Checking if 23.226.227.93:443 (127.0.0.1:5309) can resolve gentoo.org.
+Success: 134.167.16.89
+Checking if 23.226.227.93:443 (127.0.0.1:5309) can resolve disqus.com.
+Success: 134.81.156.104
+Checking if 23.226.227.93:443 (127.0.0.1:5309) can resolve a.disqus.com.
+Success: 134.52.101.151
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;running-dnscrypt-proxy-multi-from-an-init-script&quot;&gt;Running dnscrypt-proxy-multi from an init script&lt;/h2&gt;
+
+&lt;p&gt;Creating a service for &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt; is pretty straightforward, and is about the same as any other service.  The only difference is that we have to explicitly specify the Ruby program that would directly run &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;An example to this is this OpenRC script for Gentoo provided by &lt;a href=&quot;https://github.com/konsolebox/overlay/tree/master/net-dns/dnscrypt-proxy-multi&quot;&gt;net-dns/dnscrypt-proxy-multi&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+RUBY_EXEC=${RUBY_EXEC:-/usr/bin/ruby}
+PID_FILE=${PID_FILE:-/run/dnscrypt-proxy-multi.pid}
+
+description=&quot;Runs multiple instances of dnscrypt-proxy&quot;
+
+depend() {
+	use net
+	before dns
+	after logger
+}
+
+start() {
+	ebegin &quot;Starting dnscrypt-proxy-multi&quot;
+
+	start-stop-daemon --start --quiet --background --pidfile &quot;${PID_FILE}&quot; --make-pidfile --exec &quot;${RUBY_EXEC}&quot; -- \
+			/usr/bin/dnscrypt-proxy-multi ${DNSCRYPT_PROXY_MULTI_OPTIONS}
+
+	eend &quot;$?&quot;
+}
+
+stop() {
+	ebegin &quot;Stopping dnscrypt-proxy-multi&quot;
+	start-stop-daemon --stop --quiet --pidfile &quot;${PID_FILE}&quot;
+	eend &quot;$?&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;setting-up-named-or-unbound-to-forward-requests-to-the-instances-of-dnscrypt-proxy&quot;&gt;Setting up named or unbound to forward requests to the instances of dnscrypt-proxy&lt;/h2&gt;
+
+&lt;p&gt;Now that we have instances of &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; set up, we can now use a local DNS server to catch all requests from the system and forward them to the instances.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example for &lt;code class=&quot;highlighter-rouge&quot;&gt;named&lt;/code&gt; (&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/bind/named.conf&lt;/code&gt;).  The most important directives are &lt;code class=&quot;highlighter-rouge&quot;&gt;forward&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;forwarders&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/*
+ * Refer to the named.conf(5) and named(8) man pages, and the documentation
+ * in /usr/share/doc/bind-9 for more details.
+ * Online versions of the documentation can be found here:
+ * http://www.isc.org/software/bind/documentation
+ */
+
+acl &quot;xfer&quot; {
+	none;
+};
+
+acl &quot;trusted&quot; {
+	127.0.0.0/8;
+};
+
+options {
+	directory &quot;/var/bind&quot;;
+	pid-file &quot;/run/named/named.pid&quot;;
+
+	listen-on { 127.0.0.1; };
+
+	allow-query {
+		trusted;
+	};
+
+	allow-query-cache {
+		trusted;
+	};
+
+	allow-recursion {
+		trusted;
+	};
+
+	allow-transfer {
+		none;
+	};
+
+	allow-update {
+		none;
+	};
+
+	forward only;
+
+	forwarders {
+		127.0.0.1 port 5300;  // dnscrypt-proxy-multi
+		127.0.0.1 port 5301;  // dnscrypt-proxy-multi
+		127.0.0.1 port 5302;  // dnscrypt-proxy-multi
+		127.0.0.1 port 5303;  // dnscrypt-proxy-multi
+		127.0.0.1 port 5304;  // dnscrypt-proxy-multi
+		127.0.0.1 port 5305;  // dnscrypt-proxy-multi
+		127.0.0.1 port 5306;  // dnscrypt-proxy-multi
+		127.0.0.1 port 5307;  // dnscrypt-proxy-multi
+		127.0.0.1 port 5308;  // dnscrypt-proxy-multi
+		127.0.0.1 port 5309;  // dnscrypt-proxy-multi
+	};
+
+	recursion yes;
+};
+
+include &quot;/etc/bind/logging.conf&quot;;
+
+zone &quot;.&quot; in {
+	type hint;
+	file &quot;/var/bind/named.cache&quot;;
+};
+
+zone &quot;localhost&quot; IN {
+	type master;
+	file &quot;pri/localhost.zone&quot;;
+	notify no;
+};
+
+zone &quot;127.in-addr.arpa&quot; IN {
+	type master;
+	file &quot;pri/127.zone&quot;;
+	notify no;
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And here’s an example configuration for &lt;code class=&quot;highlighter-rouge&quot;&gt;unbound&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server:
+	verbosity: 1
+	interface: 127.0.0.1
+	chroot: &quot;/chroot/unbound&quot;
+	root-hints: &quot;/etc/root.hints&quot;
+	do-not-query-localhost: no
+forward-zone:
+	name: &quot;.&quot;
+	forward-addr: 127.0.0.1@5300
+	forward-addr: 127.0.0.1@5301
+	forward-addr: 127.0.0.1@5302
+	forward-addr: 127.0.0.1@5303
+	forward-addr: 127.0.0.1@5304
+	forward-addr: 127.0.0.1@5305
+	forward-addr: 127.0.0.1@5306
+	forward-addr: 127.0.0.1@5307
+	forward-addr: 127.0.0.1@5308
+	forward-addr: 127.0.0.1@5309
+	forward-first: no
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice that we had to use &lt;code class=&quot;highlighter-rouge&quot;&gt;do-not-query-localhost: no&lt;/code&gt; since it is &lt;code class=&quot;highlighter-rouge&quot;&gt;yes&lt;/code&gt; by default, and queries sent to &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1/8&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;::1&lt;/code&gt; are not allowed.  If you think it’s a security risk, you can make &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; listen to local addresses besides &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1&lt;/code&gt;, like &lt;code class=&quot;highlighter-rouge&quot;&gt;127.1.0.1&lt;/code&gt;, and add custom &lt;code class=&quot;highlighter-rouge&quot;&gt;do-not-query-address&lt;/code&gt; values that would target localhost addresses besides it, like &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1/16&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once configured, start the name server with your service manager.  For example:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/init.d/named start
+/etc/init.d/unbound start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After that, running &lt;code class=&quot;highlighter-rouge&quot;&gt;dig kernel.org @127.0.0.1&lt;/code&gt; should give us something like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;; &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.10.3-P2 &amp;lt;&amp;lt;&amp;gt;&amp;gt; kernel.org @127.0.0.1
+;; global options: +cmd
+;; Got answer:
+;; -&amp;gt;&amp;gt;HEADER&amp;lt;&amp;lt;- opcode: QUERY, status: NOERROR, id: 35985
+;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;kernel.org.                    IN      A
+
+;; ANSWER SECTION:
+kernel.org.             571     IN      A       199.204.44.194
+kernel.org.             571     IN      A       198.145.20.140
+kernel.org.             571     IN      A       149.20.4.69
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Seeing that everything’s ok, we can now add &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/resolv.conf&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# echo 'nameserver 127.0.0.1' &amp;gt; /etc/resolv.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can make it permanent by configuring your network interface with the network manager you use, just like this one:&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;/images/various/b75352bf2606ebb22901d41c2545894d1e513181.jpg&quot; alt=&quot;[ connection edit ]&quot; /&gt;
+	&lt;figcaption&gt;Editing a network connection using Network Manager&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Side note: We actually can just make instances of &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; listen to multiple IP addresses like 127.53.0.1 to 127.53.0.10 where each would listen to port 53, and just add those IP addresses to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/resolv.conf&lt;/code&gt;; no longer needing a local name server in between, but I still prefer the idea of having everything managed by a single server, where the server may also cache the DNS data by itself.&lt;/p&gt;
+
+&lt;h2 id=&quot;filtering-syslog-messages&quot;&gt;Filtering syslog messages&lt;/h2&gt;
+
+&lt;p&gt;If we’re using &lt;code class=&quot;highlighter-rouge&quot;&gt;syslog&lt;/code&gt; to all instances of &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt;, we can filter them and send them to another file by configuring &lt;code class=&quot;highlighter-rouge&quot;&gt;syslog-ng&lt;/code&gt; (granting &lt;code class=&quot;highlighter-rouge&quot;&gt;syslog-ng&lt;/code&gt; is our system logger application).&lt;/p&gt;
+
+&lt;p&gt;Here’s an example configuration in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/syslog-ng/syslog-ng.conf&lt;/code&gt;.  Note that I have excluded the &lt;code class=&quot;highlighter-rouge&quot;&gt;options&lt;/code&gt; directive.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
+source s_system { system(); internal(); };
+
+filter f_dnscrypt_proxy { program(^dnscrypt-proxy$); };
+filter f_dnscrypt_proxy_multi { program(^dnscrypt-proxy-multi$); };
+filter f_messages { not program(^unbound$) and not program(^dnscrypt-proxy$) and not program(^dnscrypt-proxy-multi$); };
+filter f_unbound { program(^unbound$); };
+
+destination d_console_all { file(&quot;/dev/tty12&quot;); };
+destination d_dnscrypt_proxy { file(&quot;/var/log/dnscrypt-proxy.log&quot;); };
+destination d_dnscrypt_proxy_multi { file(&quot;/var/log/dnscrypt-proxy-multi.log&quot;); };
+destination d_messages { file(&quot;/var/log/messages&quot;); };
+destination d_unbound { file(&quot;/var/log/unbound.log&quot;); };
+
+log { source(s_system); filter(f_dnscrypt_proxy); destination(d_dnscrypt_proxy); };
+log { source(s_system); filter(f_dnscrypt_proxy_multi); destination(d_dnscrypt_proxy_multi); };
+log { source(s_system); destination(d_console_all); };
+log { source(s_system); filter(f_messages); destination(d_messages); };
+log { source(s_system); filter(f_unbound); destination(d_unbound); };
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For more informtion on how those directives work, please see &lt;code class=&quot;highlighter-rouge&quot;&gt;syslog-ng.conf(5)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;After making the changes, restart the &lt;code class=&quot;highlighter-rouge&quot;&gt;syslog-ng&lt;/code&gt; to make it work.  In Gentoo, you can do it with &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/init.d/syslog-ng restart&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;running-dnscrypt-proxy-multi-in-a-chroot-environment&quot;&gt;Running dnscrypt-proxy-multi in a chroot environment&lt;/h2&gt;
+
+&lt;p&gt;I’ll be updating this article for that information, but if you’re using Gentoo and OpenRC, you can install the &lt;code class=&quot;highlighter-rouge&quot;&gt;konsolebox&lt;/code&gt; overlay and use the &lt;code class=&quot;highlighter-rouge&quot;&gt;chroot&lt;/code&gt; flag when you install &lt;code class=&quot;highlighter-rouge&quot;&gt;net-dns/dnscrypt-proxy-multi&lt;/code&gt;.  After installing the package, configure &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/conf.d/dnscrypt-proxy-multi-chroot&lt;/code&gt; and run &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/conf.d/dnscrypt-proxy-multi-chroot setup&lt;/code&gt;.  Run &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/conf.d/dnscrypt-proxy-multi-chroot start&lt;/code&gt; afterwards.  Don’t forget to add the init script at boot time with &lt;code class=&quot;highlighter-rouge&quot;&gt;rc-config add dnscrypt-proxy-multi-chroot&lt;/code&gt; if you need to.&lt;/p&gt;
+
+&lt;p&gt;It should also be noted that &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy&lt;/code&gt; is already capable of doing &lt;code class=&quot;highlighter-rouge&quot;&gt;chroot&lt;/code&gt; by itself when specified with a user, which can be configured through &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt;’s &lt;code class=&quot;highlighter-rouge&quot;&gt;--dnscrypt-proxy-user&lt;/code&gt; option.  See &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy(8)&lt;/code&gt; for more info about the &lt;code class=&quot;highlighter-rouge&quot;&gt;--user&lt;/code&gt; option, which is called by &lt;code class=&quot;highlighter-rouge&quot;&gt;dnscrypt-proxy-multi&lt;/code&gt; when &lt;code class=&quot;highlighter-rouge&quot;&gt;--dnscrypt-proxy-user&lt;/code&gt; is used.&lt;/p&gt;</content><author><name>konsolebox</name></author><category term="blog" /><category term="journal dns" /><summary type="html">DNSCrypt has become the most ideal solution for having secure DNS resolving sessions. The protocol has not been submitted to IETF, but a lot of people has already started using it, and multiple client and server implementations already exist.</summary></entry><entry><title type="html">The Cubic and Polymorphic Encryption Systems</title><link href="http://localhost:4000/blog/2009/09/08/the-cubic-and-polymorphic-encryption-systems.html" rel="alternate" type="text/html" title="The Cubic and Polymorphic Encryption Systems" /><published>2009-09-08T00:11:50+00:00</published><updated>2009-09-08T00:11:50+00:00</updated><id>http://localhost:4000/blog/2009/09/08/the-cubic-and-polymorphic-encryption-systems</id><content type="html" xml:base="http://localhost:4000/blog/2009/09/08/the-cubic-and-polymorphic-encryption-systems.html">&lt;p&gt;For the past few years I’ve been wondering why encryption systems, even
+though were already considered as stable on the time they were released
+or known to the public, mostly were still breakable either through the
+use of fast computing systems, or through some ingeneous tricks.&lt;/p&gt;
+
+&lt;p&gt;Then last year I thought that if the inventors of encryption systems can
+never be sure or can never solidize their systems, then perhaps those
+systems should be encrypted as well.&lt;/p&gt;
+
+&lt;p&gt;What I mean here is that, we can perhaps create an encryption system
+whereby the system is never constant or static or whereas the system on
+how the encryption will proceed will depend on another variable like,
+for example, the password or the encryption key itself.&lt;/p&gt;
+
+&lt;p&gt;To make things simpler, we can do something like generating a list of
+encryption methods from a password or part of the password or a seed
+based from the password encoded in special algorithms and using the
+methods in the list to encrypt a target plain text.  After encryption,
+we can then decrypt it by using the reverse form of the list.  A
+different password will only form a different sequence of methods and
+should unlikely decrypt the encrypted text.&lt;/p&gt;
+
+&lt;p&gt;An obvious difficulty in cracking should be noticed here.  Cracking
+programs will be difficult to optimize and could probably take an
+incredibly long time to finish a single crack.  We should know that in
+order to make a successful crack, cracking programs should successfully
+guess the sequence first then sucessfully find the password using the
+methods in the sequences as well.&lt;/p&gt;
+
+&lt;p&gt;Note that enhancements can also be added to the encryption like
+forwarding a seed to the next sets of plain text from the whole or part
+of an encryption result either after the last method or on a random
+part of the methods.  These enhancements should also be carefully
+examined though as they sometimes just make false enhancements and make
+the system weaker.&lt;/p&gt;
+
+&lt;p&gt;Generally, with random methods, probability of finding the key would
+nearly reach 0 at least with a strong implementation.  Also, with this
+concept, boundaries that are limited by specific encryptions can be
+broken; a new implementation can be easily remade from another working
+implementation by adding new methods and/or just changing the
+parameters like the minimum and maximum limit of the list.&lt;/p&gt;
+
+&lt;figure class=&quot;right&quot;&gt;
+	&lt;a title=&quot;By Andromorfo (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY-SA 4.0-3.0-2.5-2.0-1.0 (http://creativecommons.org/licenses/by-sa/4.0-3.0-2.5-2.0-1.0)], via Wikimedia Commons&quot; href=&quot;https://commons.wikimedia.org/wiki/File%3ARubix_cube.jpg&quot;&gt;&lt;img width=&quot;256&quot; alt=&quot;Rubix cube&quot; src=&quot;//upload.wikimedia.org/wikipedia/commons/8/81/Rubix_cube.jpg&quot; /&gt;&lt;/a&gt;
+	&lt;figcaption&gt;The Rubik's Cube&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Out of this idea, there are many possible implementations we can create
+and one of those would be basing an encryption system on an object like
+a cube.  Here we process every part of the plain text by putting it in
+an imaginary space like the cube and then we manipulate the cube based
+from the generated list of methods that was created from the password.
+In the methods, we can do many things including both the things we can
+do on a rubik’s cube and also the things we can do on other encryption
+systems that applies on things based from a password like the ones in
+AES.&lt;/p&gt;
+
+&lt;p&gt;By these mechanisms and the randomization of methods, we can tell that
+an implementation on a cube should already be strong enough but how
+‘bout if we also apply it on other figures like the figure that has
+eight sides instead of just four (I don’t know what it’s called) and
+the other polyhedrons?&lt;/p&gt;
+
+&lt;p&gt;Also, how ‘bout if we make the figures polymorhpic that it can convert
+from one figure to another and vice versa?&lt;/p&gt;
+
+&lt;p&gt;Obvious pros regarding this concept:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Far less predictable&lt;/li&gt;
+  &lt;li&gt;Far less crackable&lt;/li&gt;
+  &lt;li&gt;Very flexible&lt;/li&gt;
+  &lt;li&gt;Could be a candidate of a good encryption system that could protect
+data against new superfast computing systems&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Obvious cons:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Not easy or less easier to implement especially in embedded systems&lt;/li&gt;
+  &lt;li&gt;The stronger and the more random the implementation, the slower and
+the more difficult to stabilize and/or optimize&lt;/li&gt;
+  &lt;li&gt;Very matrical and mind squeezing especially when making the code
+extremely solid and consistent&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>konsolebox</name></author><category term="blog" /><category term="cryptography forwarded" /><summary type="html">For the past few years I’ve been wondering why encryption systems, even though were already considered as stable on the time they were released or known to the public, mostly were still breakable either through the use of fast computing systems, or through some ingeneous tricks.</summary></entry></feed>
