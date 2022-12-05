@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="https://konsolebox.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://konsolebox.io/" rel="alternate" type="text/html" /><updated>2022-12-05T15:24:24+00:00</updated><id>https://konsolebox.io/feed.xml</id><title type="html">konsolebox</title><subtitle></subtitle><author><name>konsolebox</name></author><entry><title type="html">Creating Sequential Tasks Using Promises</title><link href="https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html" rel="alternate" type="text/html" title="Creating Sequential Tasks Using Promises" /><published>2022-12-05T15:19:29+00:00</published><updated>2022-12-05T15:19:29+00:00</updated><id>https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises</id><content type="html" xml:base="https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html"><![CDATA[<p>Is pretty simple.  The target is to have a pre-start queue and a promise train that gets extended
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="https://konsolebox.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://konsolebox.io/" rel="alternate" type="text/html" /><updated>2022-12-05T15:35:10+00:00</updated><id>https://konsolebox.io/feed.xml</id><title type="html">konsolebox</title><subtitle></subtitle><author><name>konsolebox</name></author><entry><title type="html">Creating Sequential Tasks Using Promises</title><link href="https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html" rel="alternate" type="text/html" title="Creating Sequential Tasks Using Promises" /><published>2022-12-05T15:19:29+00:00</published><updated>2022-12-05T15:19:29+00:00</updated><id>https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises</id><content type="html" xml:base="https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html"><![CDATA[<p>Is pretty simple.  The target is to have a pre-start queue and a promise train that gets extended
 while new tasks are added.</p>
 
 <p>The following code is an example.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class CompleteReadyStateTasks {
-	constructor(synchronizer = m =&gt; m()) {
+	constructor() {
 		if (CompleteReadyStateTasks._instance) {
 			throw new Error("Multiple instantiation not allowed.")
 		}
 
-		this.synchronizer = synchronizer;
 		this.tasks = [];
 
 		if (document.readyState !== 'complete') {
@@ -74,12 +73,12 @@ CompleteReadyStateTasks.getInstance().appendTask(function() {
 	s.setAttribute('data-timestamp', +new Date());
 	(d.head || d.body).appendChild(s);
 });
-</code></pre></div></div>]]></content><author><name>konsolebox</name></author><category term="blog" /><category term="javascript js" /><summary type="html"><![CDATA[Is pretty simple. The target is to have a pre-start queue and a promise train that gets extended while new tasks are added.]]></summary></entry><entry><title type="html">Showing asterisks during password input in login, su, ssh, and cryptsetup</title><link href="https://konsolebox.io/blog/2022/12/04/showing-asterisks-during-password-input-in-login-su-ssh-and-cryptsetup.html" rel="alternate" type="text/html" title="Showing asterisks during password input in login, su, ssh, and cryptsetup" /><published>2022-12-04T14:04:23+00:00</published><updated>2022-12-04T14:04:23+00:00</updated><id>https://konsolebox.io/blog/2022/12/04/showing-asterisks-during-password-input-in-login--su--ssh--and-cryptsetup</id><content type="html" xml:base="https://konsolebox.io/blog/2022/12/04/showing-asterisks-during-password-input-in-login-su-ssh-and-cryptsetup.html"><![CDATA[<p>Password prompts not showing asterisks can be annoying when keys are misrepeated or doesn’t 
+</code></pre></div></div>]]></content><author><name>konsolebox</name></author><category term="blog" /><category term="javascript js" /><summary type="html"><![CDATA[Is pretty simple. The target is to have a pre-start queue and a promise train that gets extended while new tasks are added.]]></summary></entry><entry><title type="html">Showing asterisks during password input in login, su, ssh, and cryptsetup</title><link href="https://konsolebox.io/blog/2022/12/04/showing-asterisks-during-password-input-in-login-su-ssh-and-cryptsetup.html" rel="alternate" type="text/html" title="Showing asterisks during password input in login, su, ssh, and cryptsetup" /><published>2022-12-04T14:04:23+00:00</published><updated>2022-12-04T14:04:23+00:00</updated><id>https://konsolebox.io/blog/2022/12/04/showing-asterisks-during-password-input-in-login--su--ssh--and-cryptsetup</id><content type="html" xml:base="https://konsolebox.io/blog/2022/12/04/showing-asterisks-during-password-input-in-login-su-ssh-and-cryptsetup.html"><![CDATA[<p>Password prompts not showing asterisks can be annoying when keys are misrepeated or doesn’t
 respond.  While it adds a bit of security it isn’t worth the inconvenience.  After having a slightly
 failing keyboard and having a feature request that I made rejected, I finally decided to create my
 own patches.</p>
 
-<p>The following is a list of the patches I made about a year ago for pam (solves login 
+<p>The following is a list of the patches I made about a year ago for pam (solves login
 and su), ssh, and cryptsetup.  Sudo already has its own solution and can be configured through
 <a href="https://superuser.com/a/420818">pwfeedback</a>.</p>
 

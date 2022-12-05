@@ -127,12 +127,11 @@ while new tasks are added.</p>
 <p>The following code is an example.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class CompleteReadyStateTasks {
-	constructor(synchronizer = m =&gt; m()) {
+	constructor() {
 		if (CompleteReadyStateTasks._instance) {
 			throw new Error("Multiple instantiation not allowed.")
 		}
 
-		this.synchronizer = synchronizer;
 		this.tasks = [];
 
 		if (document.readyState !== 'complete') {
