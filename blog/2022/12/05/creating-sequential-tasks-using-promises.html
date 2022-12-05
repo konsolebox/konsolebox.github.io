@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Blog | konsolebox</title>
+	<title>Creating Sequential Tasks Using Promises | konsolebox</title>
 	
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,19 +15,22 @@
 
 	<!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.0.1" />
-<meta property="og:title" content="Blog" />
+<meta property="og:title" content="Creating Sequential Tasks Using Promises" />
 <meta name="author" content="konsolebox" />
 <meta property="og:locale" content="en_US" />
-<link rel="canonical" href="https://konsolebox.io/blog/" />
-<meta property="og:url" content="https://konsolebox.io/blog/" />
+<meta name="description" content="Is pretty simple. The target is to have a pre-start queue and a promise train that gets extended while new tasks are added." />
+<meta property="og:description" content="Is pretty simple. The target is to have a pre-start queue and a promise train that gets extended while new tasks are added." />
+<link rel="canonical" href="https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html" />
+<meta property="og:url" content="https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html" />
 <meta property="og:site_name" content="konsolebox" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-05T15:19:29+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Blog" />
+<meta property="twitter:title" content="Creating Sequential Tasks Using Promises" />
 <meta name="twitter:site" content="@konsolebox" />
 <meta name="twitter:creator" content="@konsolebox" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"konsolebox"},"headline":"Blog","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://konsolebox.io/images/konsolebox.jpg"},"name":"konsolebox"},"url":"https://konsolebox.io/blog/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"konsolebox"},"dateModified":"2022-12-05T15:19:29+00:00","datePublished":"2022-12-05T15:19:29+00:00","description":"Is pretty simple. The target is to have a pre-start queue and a promise train that gets extended while new tasks are added.","headline":"Creating Sequential Tasks Using Promises","mainEntityOfPage":{"@type":"WebPage","@id":"https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://konsolebox.io/images/konsolebox.jpg"},"name":"konsolebox"},"url":"https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -99,190 +102,129 @@
 
 	<main role="main">
 		<div class="wrapper">
-			
-<article class="post-excerpt" itemscope="" itemtype="http://schema.org/BlogPosting">
+			<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<header class="post-header">
+		<h1 class="post-title" itemprop="name headline">Creating Sequential Tasks Using Promises</h1>
+		<div class="post-meta">
+			<p>
+				<time title="2022-12-05T15:19:29+00:00" datetime="2022-12-05T15:19:29+00:00" itemprop="datePublished">Dec 5, 2022</time>
+				<span class="author">
+					• Author:
+					<a rel="author" href="/about/konsolebox" itemprop="author" itemscope itemtype="http://schema.org/Person">
+						<span itemprop="name">konsolebox</span>
+					</a>
+				</span>
+				<span class="permalink">• <a href="/blog/2022/12/05/creating-sequential-tasks-using-promises.html" itemprop="url">Permalink</a></span>
 
-    <header class="post-excerpt-header">
-      <h1 class="post-excerpt-title" itemprop="name headline">
-        <a href="/blog/2022/12/05/creating-sequential-tasks-using-promises.html">
-          Creating Sequential Tasks Using Promises
-        </a>
-      </h1>
 
-      <div class="post-excerpt-meta">
-        <p>
-          <time datetime="2022-12-05T15:19:29+00:00" itemprop="datePublished">Dec 5, 2022</time>
-    
-    
-        </p>
-      </div>
-    </header>
-
-    <div class="post-excerpt-content" itemprop="articleBody">
-      <p>Is pretty simple.  The target is to have a pre-start queue and a promise train that gets extended
+			</p>
+		</div>
+	</header>
+	<div class="post-content" itemprop="articleBody">
+		<p>Is pretty simple.  The target is to have a pre-start queue and a promise train that gets extended
 while new tasks are added.</p>
 
-      <p class="post-link"><a href="/blog/2022/12/05/creating-sequential-tasks-using-promises.html">Continue Reading »</a></p>
-    </div>
+<p>The following code is an example.</p>
 
-  </article>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class CompleteReadyStateTasks {
+	constructor(synchronizer = m =&gt; m()) {
+		if (CompleteReadyStateTasks._instance) {
+			throw new Error("Multiple instantiation not allowed.")
+		}
 
-<article class="post-excerpt" itemscope="" itemtype="http://schema.org/BlogPosting">
+		this.synchronizer = synchronizer;
+		this.tasks = [];
 
-    <header class="post-excerpt-header">
-      <h1 class="post-excerpt-title" itemprop="name headline">
-        <a href="/blog/2022/12/04/showing-asterisks-during-password-input-in-login-su-ssh-and-cryptsetup.html">
-          Showing asterisks during password input in login, su, ssh, and cryptsetup
-        </a>
-      </h1>
+		if (document.readyState !== 'complete') {
+			document.addEventListener('readystatechange', event =&gt; {
+				if (event.target.readyState === 'complete') {
+					this._executePendingTasks();
+				}
+			});
+		}
 
-      <div class="post-excerpt-meta">
-        <p>
-          <time datetime="2022-12-04T14:04:23+00:00" itemprop="datePublished">Dec 4, 2022</time>
-    
-    
-        </p>
-      </div>
-    </header>
+		CompleteReadyStateTasks._instance = this;
+	}
 
-    <div class="post-excerpt-content" itemprop="articleBody">
-      <p>Password prompts not showing asterisks can be annoying when keys are misrepeated or doesn’t 
-respond.  While it adds a bit of security it isn’t worth the inconvenience.  After having a slightly
-failing keyboard and having a feature request that I made rejected, I finally decided to create my
-own patches.</p>
+	static getInstance() {
+		if (!CompleteReadyStateTasks._instance)
+			new CompleteReadyStateTasks();
 
-      <p class="post-link"><a href="/blog/2022/12/04/showing-asterisks-during-password-input-in-login-su-ssh-and-cryptsetup.html">Continue Reading »</a></p>
-    </div>
+		return CompleteReadyStateTasks._instance;
+	}
 
-  </article>
+	_executePendingTasks() {
+		if (!this.taskTrain) {
+			this.taskTrain = Promise.resolve();
+		}
 
-<article class="post-excerpt" itemscope="" itemtype="http://schema.org/BlogPosting">
+		let task;
 
-    <header class="post-excerpt-header">
-      <h1 class="post-excerpt-title" itemprop="name headline">
-        <a href="/blog/2022/05/14/general-command-line-parsing-solution-without-using-getopt-s.html">
-          General command-line parsing solution without using getopt[s]
-        </a>
-      </h1>
+		while (task = this.tasks.shift()) {
+			const _task = task;
+			const method = () =&gt; new Promise(resolve =&gt;
+				requestAnimationFrame(async () =&gt; {
+					await _task();
+					resolve();
+				})
+			);
+			this.taskTrain = this.taskTrain.then(method);
+		}
+	}
 
-      <div class="post-excerpt-meta">
-        <p>
-          <time datetime="2022-05-14T08:30:50+00:00" itemprop="datePublished">May 14, 2022</time>
-    
-    
-      
-          • Updated: <time datetime="2022-11-25T03:20:15+00:00" itemprop="dateModified">Nov 25, 2022</time>
-      
-    
-        </p>
-      </div>
-    </header>
+	_executePendingTasksIfStateComplete() {
+		if (document.readyState === 'complete')
+			this._executePendingTasks();
+	}
 
-    <div class="post-excerpt-content" itemprop="articleBody">
-      <p>I never liked using <code class="highlighter-rouge">getopts</code> since it’s limited to parsing short options.  Extending it would
-require placing everything else under <code class="highlighter-rouge">*)</code>.  <code class="highlighter-rouge">getopt</code> on the other hand is an external tool and
-requires output to be expanded using <code class="highlighter-rouge">eval</code> or <code class="highlighter-rouge">compgen</code>.  These are the reasons why I choose not
-to use them and simply choose to use the simple parsing mechanism that uses the while-case-shift
-loop instead.</p>
+	prependTask(task) {
+		this.tasks.unshift(task);
+		this._executePendingTasksIfStateComplete();
+	}
 
-      <p class="post-link"><a href="/blog/2022/05/14/general-command-line-parsing-solution-without-using-getopt-s.html">Continue Reading »</a></p>
-    </div>
+	appendTask(task) {
+		this.tasks.push(task);
+		this._executePendingTasksIfStateComplete();
+	}
+}
 
-  </article>
+CompleteReadyStateTasks.getInstance().prependTask(() =&gt;
+		document.getElementsByTagName('body')[0].classList.remove('hidden'));
 
-<article class="post-excerpt" itemscope="" itemtype="http://schema.org/BlogPosting">
+CompleteReadyStateTasks.getInstance().appendTask(function() {
+	var d = document, s = d.createElement('script');
+	s.src = '//konsolebox.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+});
+</code></pre></div></div>
 
-    <header class="post-excerpt-header">
-      <h1 class="post-excerpt-title" itemprop="name headline">
-        <a href="/blog/2016/12/03/a-set-of-patches-for-geany.html">
-          A set of patches for Geany
-        </a>
-      </h1>
+	</div>
 
-      <div class="post-excerpt-meta">
-        <p>
-          <time datetime="2016-12-03T08:23:41+00:00" itemprop="datePublished">Dec 3, 2016</time>
-    
-    
-        </p>
-      </div>
-    </header>
+	<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function() {
+		this.page.url = 'https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html';
+		this.page.identifier = 'posts/2022-12-05/creating-sequential-tasks-using-promises';
+	};
 
-    <div class="post-excerpt-content" itemprop="articleBody">
-      <p>Last July, I started creating more <a href="https://github.com/konsolebox/geany/branches">enhancements for Geany</a>, which I didn’t expect to end up being many.  Most of the patches (all actually) haven’t been merged to upstream, so I thought about creating my personal compilation for them instead, and it’s in <a href="https://github.com/konsolebox/geany-patches">geany-patches</a>.</p>
-
-      <p class="post-link"><a href="/blog/2016/12/03/a-set-of-patches-for-geany.html">Continue Reading »</a></p>
-    </div>
-
-  </article>
-
-<article class="post-excerpt" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-    <header class="post-excerpt-header">
-      <h1 class="post-excerpt-title" itemprop="name headline">
-        <a href="/blog/2016/06/02/setting-up-multiple-instances-of-dnscrypt-proxy-with-dnscrypt-proxy-multi.html">
-          Setting up multiple instances of dnscrypt-proxy with dnscrypt-proxy-multi
-        </a>
-      </h1>
-
-      <div class="post-excerpt-meta">
-        <p>
-          <time datetime="2016-06-02T08:51:02+00:00" itemprop="datePublished">Jun 2, 2016</time>
-    
-    
-      
-          • Updated: <time datetime="2016-12-03T13:44:58+00:00" itemprop="dateModified">Dec 3, 2016</time>
-      
-    
-        </p>
-      </div>
-    </header>
-
-    <div class="post-excerpt-content" itemprop="articleBody">
-      <p><a href="https://dnscrypt.org/">DNSCrypt</a> has become the most ideal solution for having secure DNS resolving sessions.  The protocol has not been submitted to IETF, but a lot of people has already started using it, and multiple client and server implementations already exist.</p>
-
-      <p class="post-link"><a href="/blog/2016/06/02/setting-up-multiple-instances-of-dnscrypt-proxy-with-dnscrypt-proxy-multi.html">Continue Reading »</a></p>
-    </div>
-
-  </article>
-
-<article class="post-excerpt" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-    <header class="post-excerpt-header">
-      <h1 class="post-excerpt-title" itemprop="name headline">
-        <a href="/blog/2009/09/08/the-cubic-and-polymorphic-encryption-systems.html">
-          The Cubic and Polymorphic Encryption Systems
-        </a>
-      </h1>
-
-      <div class="post-excerpt-meta">
-        <p>
-          <time datetime="2009-09-08T00:11:50+00:00" itemprop="datePublished">Sep 8, 2009</time>
-    
-          • <a href="http://konsolebox.blogspot.com/2009/09/cubic-and-polymorphic-encryption.html">Original Post</a>
-    
-    
-      
-          • Updated: <time datetime="2016-06-28T11:00:00+00:00" itemprop="dateModified">Jun 28, 2016</time>
-      
-    
-        </p>
-      </div>
-    </header>
-
-    <div class="post-excerpt-content" itemprop="articleBody">
-      <p>For the past few years I’ve been wondering why encryption systems, even
-though were already considered as stable on the time they were released
-or known to the public, mostly were still breakable either through the
-use of fast computing systems, or through some ingeneous tricks.</p>
-
-      <p class="post-link"><a href="/blog/2009/09/08/the-cubic-and-polymorphic-encryption-systems.html">Continue Reading »</a></p>
-    </div>
-
-  </article>
+	CompleteReadyStateTasks.getInstance().appendTask(function() {
+		var d = document, s = d.createElement('script');
+		s.src = '//konsolebox.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	});
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 
+</article>
 
+
+			
+			<div id="back-to-top">
+				<a href="#top"><img alt="Back to top" title="Back to top" src="/images/icons/home.svg" /></a>
+			</div>
 			
 		</div>
 	</main>

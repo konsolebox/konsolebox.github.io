@@ -1,4 +1,80 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="https://konsolebox.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://konsolebox.io/" rel="alternate" type="text/html" /><updated>2022-12-05T08:02:58+00:00</updated><id>https://konsolebox.io/feed.xml</id><title type="html">konsolebox</title><subtitle></subtitle><author><name>konsolebox</name></author><entry><title type="html">Showing asterisks during password input in login, su, ssh, and cryptsetup</title><link href="https://konsolebox.io/blog/2022/12/04/showing-asterisks-during-password-input-in-login-su-ssh-and-cryptsetup.html" rel="alternate" type="text/html" title="Showing asterisks during password input in login, su, ssh, and cryptsetup" /><published>2022-12-04T14:04:23+00:00</published><updated>2022-12-04T14:04:23+00:00</updated><id>https://konsolebox.io/blog/2022/12/04/showing-asterisks-during-password-input-in-login--su--ssh--and-cryptsetup</id><content type="html" xml:base="https://konsolebox.io/blog/2022/12/04/showing-asterisks-during-password-input-in-login-su-ssh-and-cryptsetup.html"><![CDATA[<p>Password prompts not showing asterisks can be annoying when keys are misrepeated or doesn’t 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="https://konsolebox.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://konsolebox.io/" rel="alternate" type="text/html" /><updated>2022-12-05T15:24:24+00:00</updated><id>https://konsolebox.io/feed.xml</id><title type="html">konsolebox</title><subtitle></subtitle><author><name>konsolebox</name></author><entry><title type="html">Creating Sequential Tasks Using Promises</title><link href="https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html" rel="alternate" type="text/html" title="Creating Sequential Tasks Using Promises" /><published>2022-12-05T15:19:29+00:00</published><updated>2022-12-05T15:19:29+00:00</updated><id>https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises</id><content type="html" xml:base="https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html"><![CDATA[<p>Is pretty simple.  The target is to have a pre-start queue and a promise train that gets extended
+while new tasks are added.</p>
+
+<p>The following code is an example.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class CompleteReadyStateTasks {
+	constructor(synchronizer = m =&gt; m()) {
+		if (CompleteReadyStateTasks._instance) {
+			throw new Error("Multiple instantiation not allowed.")
+		}
+
+		this.synchronizer = synchronizer;
+		this.tasks = [];
+
+		if (document.readyState !== 'complete') {
+			document.addEventListener('readystatechange', event =&gt; {
+				if (event.target.readyState === 'complete') {
+					this._executePendingTasks();
+				}
+			});
+		}
+
+		CompleteReadyStateTasks._instance = this;
+	}
+
+	static getInstance() {
+		if (!CompleteReadyStateTasks._instance)
+			new CompleteReadyStateTasks();
+
+		return CompleteReadyStateTasks._instance;
+	}
+
+	_executePendingTasks() {
+		if (!this.taskTrain) {
+			this.taskTrain = Promise.resolve();
+		}
+
+		let task;
+
+		while (task = this.tasks.shift()) {
+			const _task = task;
+			const method = () =&gt; new Promise(resolve =&gt;
+				requestAnimationFrame(async () =&gt; {
+					await _task();
+					resolve();
+				})
+			);
+			this.taskTrain = this.taskTrain.then(method);
+		}
+	}
+
+	_executePendingTasksIfStateComplete() {
+		if (document.readyState === 'complete')
+			this._executePendingTasks();
+	}
+
+	prependTask(task) {
+		this.tasks.unshift(task);
+		this._executePendingTasksIfStateComplete();
+	}
+
+	appendTask(task) {
+		this.tasks.push(task);
+		this._executePendingTasksIfStateComplete();
+	}
+}
+
+CompleteReadyStateTasks.getInstance().prependTask(() =&gt;
+		document.getElementsByTagName('body')[0].classList.remove('hidden'));
+
+CompleteReadyStateTasks.getInstance().appendTask(function() {
+	var d = document, s = d.createElement('script');
+	s.src = '//konsolebox.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+});
+</code></pre></div></div>]]></content><author><name>konsolebox</name></author><category term="blog" /><category term="javascript js" /><summary type="html"><![CDATA[Is pretty simple. The target is to have a pre-start queue and a promise train that gets extended while new tasks are added.]]></summary></entry><entry><title type="html">Showing asterisks during password input in login, su, ssh, and cryptsetup</title><link href="https://konsolebox.io/blog/2022/12/04/showing-asterisks-during-password-input-in-login-su-ssh-and-cryptsetup.html" rel="alternate" type="text/html" title="Showing asterisks during password input in login, su, ssh, and cryptsetup" /><published>2022-12-04T14:04:23+00:00</published><updated>2022-12-04T14:04:23+00:00</updated><id>https://konsolebox.io/blog/2022/12/04/showing-asterisks-during-password-input-in-login--su--ssh--and-cryptsetup</id><content type="html" xml:base="https://konsolebox.io/blog/2022/12/04/showing-asterisks-during-password-input-in-login-su-ssh-and-cryptsetup.html"><![CDATA[<p>Password prompts not showing asterisks can be annoying when keys are misrepeated or doesn’t 
 respond.  While it adds a bit of security it isn’t worth the inconvenience.  After having a slightly
 failing keyboard and having a feature request that I made rejected, I finally decided to create my
 own patches.</p>
