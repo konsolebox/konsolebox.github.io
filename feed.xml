@@ -1,21 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="https://konsolebox.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://konsolebox.io/" rel="alternate" type="text/html" /><updated>2022-12-05T15:35:10+00:00</updated><id>https://konsolebox.io/feed.xml</id><title type="html">konsolebox</title><subtitle></subtitle><author><name>konsolebox</name></author><entry><title type="html">Creating Sequential Tasks Using Promises</title><link href="https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html" rel="alternate" type="text/html" title="Creating Sequential Tasks Using Promises" /><published>2022-12-05T15:19:29+00:00</published><updated>2022-12-05T15:19:29+00:00</updated><id>https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises</id><content type="html" xml:base="https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html"><![CDATA[<p>Is pretty simple.  The target is to have a pre-start queue and a promise train that gets extended
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="https://konsolebox.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://konsolebox.io/" rel="alternate" type="text/html" /><updated>2022-12-07T08:27:47+00:00</updated><id>https://konsolebox.io/feed.xml</id><title type="html">konsolebox</title><subtitle></subtitle><author><name>konsolebox</name></author><entry><title type="html">Creating Sequential Tasks Using Promises</title><link href="https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html" rel="alternate" type="text/html" title="Creating Sequential Tasks Using Promises" /><published>2022-12-05T15:19:29+00:00</published><updated>2022-12-05T15:19:29+00:00</updated><id>https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises</id><content type="html" xml:base="https://konsolebox.io/blog/2022/12/05/creating-sequential-tasks-using-promises.html"><![CDATA[<p>Is pretty simple.  The target is to have a pre-start queue and a promise train that gets extended
 while new tasks are added.</p>
 
 <p>The following code is an example.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class CompleteReadyStateTasks {
 	constructor() {
-		if (CompleteReadyStateTasks._instance) {
-			throw new Error("Multiple instantiation not allowed.")
-		}
+		if (CompleteReadyStateTasks._instance)
+			throw new Error("Multiple instantiation not allowed.");
 
 		this.tasks = [];
+		this.taskTrain = Promise.resolve();
 
 		if (document.readyState !== 'complete') {
 			document.addEventListener('readystatechange', event =&gt; {
-				if (event.target.readyState === 'complete') {
+				if (event.target.readyState === 'complete')
 					this._executePendingTasks();
-				}
 			});
 		}
 
@@ -30,10 +29,6 @@ while new tasks are added.</p>
 	}
 
 	_executePendingTasks() {
-		if (!this.taskTrain) {
-			this.taskTrain = Promise.resolve();
-		}
-
 		let task;
 
 		while (task = this.tasks.shift()) {
