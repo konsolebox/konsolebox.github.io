@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>A set of patches for Geany | konsolebox</title>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet" />
+	<link rel="icon" href="/images/konsolebox.jpg" />
+	
+	<link rel="alternate" type="application/rss+xml" title="konsolebox" href="https://konsolebox.github.io/feed.xml" />
+
+	<!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.0.1" />
+<meta property="og:title" content="A set of patches for Geany" />
+<meta name="author" content="konsolebox" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Last July, I started creating more enhancements for Geany, which I didn’t expect to end up being many. Most of the patches (all actually) haven’t been merged to upstream, so I thought about creating my personal compilation for them instead, and it’s in geany-patches." />
+<meta property="og:description" content="Last July, I started creating more enhancements for Geany, which I didn’t expect to end up being many. Most of the patches (all actually) haven’t been merged to upstream, so I thought about creating my personal compilation for them instead, and it’s in geany-patches." />
+<link rel="canonical" href="https://konsolebox.github.io/blog/2016/12/03/a-set-of-patches-for-geany.html" />
+<meta property="og:url" content="https://konsolebox.github.io/blog/2016/12/03/a-set-of-patches-for-geany.html" />
+<meta property="og:site_name" content="konsolebox" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-12-03T08:23:41+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="A set of patches for Geany" />
+<meta name="twitter:site" content="@konsolebox" />
+<meta name="twitter:creator" content="@konsolebox" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"konsolebox"},"dateModified":"2016-12-03T08:23:41+00:00","datePublished":"2016-12-03T08:23:41+00:00","description":"Last July, I started creating more enhancements for Geany, which I didn’t expect to end up being many. Most of the patches (all actually) haven’t been merged to upstream, so I thought about creating my personal compilation for them instead, and it’s in geany-patches.","headline":"A set of patches for Geany","mainEntityOfPage":{"@type":"WebPage","@id":"https://konsolebox.github.io/blog/2016/12/03/a-set-of-patches-for-geany.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://konsolebox.github.io/images/konsolebox.jpg"},"name":"konsolebox"},"url":"https://konsolebox.github.io/blog/2016/12/03/a-set-of-patches-for-geany.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+	<style>
+	
+	html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,span.tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}body{background-color:#fff;color:#111;font-family:"Open Sans","DejaVu Sans","Droid Sans","Verdana","Helvetica Neue",Helvetica,Arial,sans-serif;font-feature-settings:"kern" 1;-moz-font-feature-settings:"kern" 1;-o-font-feature-settings:"kern" 1;-webkit-font-feature-settings:"kern" 1;font-kerning:normal;font-size:14px;font-weight:normal;line-height:2em;-webkit-text-size-adjust:100%}h1,h2,h3,h4,h5,h6,p,blockquote,pre,ul,ol,dl,figure,img{margin-bottom:15px}a{color:#0D49C3;text-decoration:none}a:visited{color:#0D49C3}a:hover{color:#0D49C3;text-decoration:underline}blockquote{color:#828282;border-left:4px solid #e8e8e8;padding-left:15px;font-size:14px;letter-spacing:-1px;font-style:italic}blockquote>:last-child{margin-bottom:0}code{font-family:"Bitstream Vera Sans Mono","DejaVu Sans Mono","Open Sans Mono","Liberation Mono","Consolas","Courier New",monospace;font-size:12.6px;border:none;border-radius:5px;background-color:#eaeaea;padding:1px 5px;line-height:1.7em}em{font-style:italic}h1{font-weight:700;font-family:"Open Sans","DejaVu Sans","Droid Sans","Verdana","Helvetica Neue",Helvetica,Arial,sans-serif;margin-left:-2px}h2{font-weight:700;font-family:"Open Sans","DejaVu Sans","Droid Sans","Verdana","Helvetica Neue",Helvetica,Arial,sans-serif;margin-left:-2px}h3{font-weight:700;font-family:"Open Sans","DejaVu Sans","Droid Sans","Verdana","Helvetica Neue",Helvetica,Arial,sans-serif;margin-left:-1px}h4{font-weight:normal;font-family:"Open Sans","DejaVu Sans","Droid Sans","Verdana","Helvetica Neue",Helvetica,Arial,sans-serif}h5{font-weight:normal;font-family:"Open Sans","DejaVu Sans","Droid Sans","Verdana","Helvetica Neue",Helvetica,Arial,sans-serif}h6{font-weight:normal;font-family:"Open Sans","DejaVu Sans","Droid Sans","Verdana","Helvetica Neue",Helvetica,Arial,sans-serif}img{max-width:100%;vertical-align:middle}li>ul,li>ol{margin-bottom:0}ol{margin-left:30px}pre{background:#353739;border-radius:5px;border:none;color:#fff;font-family:"Bitstream Vera Sans Mono","DejaVu Sans Mono","Open Sans Mono","Liberation Mono","Consolas","Courier New",monospace;font-size:12.6px;line-height:1.7em;max-height:50em;overflow-x:auto;overflow-y:auto;padding:8px 12px;-moz-tab-size:4;-o-tab-size:4;tab-size:4}pre>code{border:0;padding:0;background-color:inherit}@media (min-width: 1400px){pre{background:#eee;color:#111}}strong{font-weight:bold}.strong{font-weight:bold}tt,span.tt{font-family:"Bitstream Vera Sans Mono","DejaVu Sans Mono","Open Sans Mono","Liberation Mono","Consolas","Courier New",monospace;font-size:12.6px;text-decoration:underline}cite{font-weight:normal;color:#000}ul{list-style-type:disc;margin-left:30px}.highlight{margin-bottom:15px}figure{display:table}figure img{margin:0}figure>figcaption{caption-side:bottom;display:table-caption;font-size:12.6px;text-align:center;line-height:1em}figure.right{clear:left;float:right;margin-left:10px}figure.left{clear:right;float:left;margin-right:10px}.hidden{display:none !important}.black{color:black}.white{color:white}strong{font-weight:bold}.wrapper{max-width:calc(1024px - (30px * 2));padding-right:30px;padding-left:30px;margin:auto}@media screen and (max-width: 800px){.wrapper{max-width:calc(1024px - 30px);padding-right:15px;padding-left:15px}}kbd{padding:0.1em 0.6em;border:1px solid #CCC;font-size:11px;font-family:Arial,Helvetica,sans-serif;background-color:#F7F7F7;color:#333;box-shadow:0px 1px 0px rgba(0,0,0,0.2),0px 0px 0px 2px #fff inset;border-radius:3px;display:inline-block;margin:0px 0.1em;text-shadow:0px 1px 0px #FFF;line-height:1.4;white-space:nowrap}html,body{width:100%;background-color:#444}body>header,body>main,body>footer{margin:0 auto;max-width:1380px;background-color:#fff}#site-header{position:relative;background-color:#E46020;min-height:56px}#site-header>.wrapper{display:flex;padding-right:15px}@media screen and (max-width: 800px){#site-header>.wrapper{padding-right:0px}}#site-title{display:block;font-family:"Open Sans","Open Sans","DejaVu Sans","Droid Sans","Verdana","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:28px;font-weight:bold;letter-spacing:-1px;line-height:56px;margin-bottom:0;padding:10px 0}#site-title,#site-title:visited{color:white}#site-title:hover{text-decoration:none}#site-header-nav{display:flex;justify-content:flex-end;line-height:56px;flex:1 1 100%}#site-header-nav-trigger{display:none}#site-header-nav-links{display:flex;flex-wrap:nowrap}#site-header-nav-links a{display:block;color:white;font-family:"Dejavu Sans","Open Sans","DejaVu Sans","Droid Sans","Verdana","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:bold;font-size:16.8px;padding:10px 15px;vertical-align:middle}#site-header-nav-links a:hover{background-color:#ff871e;text-decoration:none}@media screen and (max-width: 600px){#site-title{padding:0}#site-header-nav{align-items:flex-end;background-color:#fff;border-radius:5px;border:1px solid #e8e8e8;flex-direction:column;padding:0 2px;position:absolute;right:15px;text-align:right;top:9px}#site-header-nav-trigger{display:block;float:right;width:36px;height:26px;line-height:0;padding-top:10px;text-align:center}#site-header-nav-trigger>svg{height:15px;width:18px}#site-header-nav-trigger>svg path{fill:#424242}#site-header-nav-links{display:none;clear:both}#site-header-nav-links a{display:block;color:#000;line-height:1;margin:0;padding:20px}#site-header-nav:hover #site-header-nav-links{display:flex;align-items:stretch;border-top:1px solid #888;flex-direction:column;padding-bottom:5px}}#site-header-cover img{height:100%;width:100%;margin-bottom:0;min-height:250px;object-fit:none}main{padding:30px 0 15px 0}main article.post-excerpt>header.post-excerpt-header>h1.post-excerpt-title,main article.post>header.post-header>h1.post-title,main article.page-article>header.page-article-header>h1.page-article-title{font-size:31.5px;font-weight:bold;letter-spacing:-1px;line-height:1}@media screen and (max-width: 800px){main article.post-excerpt>header.post-excerpt-header>h1.post-excerpt-title,main article.post>header.post-header>h1.post-title,main article.page-article>header.page-article-header>h1.page-article-title{font-size:24.64px}}main article.post-excerpt .post-excerpt-content,main article.post .post-content,main article.page-article>.page-article-content{margin-bottom:30px}main article.post-excerpt .post-excerpt-content h1,main article.post .post-content h1,main article.page-article>.page-article-content h1{font-size:28px}@media screen and (max-width: 800px){main article.post-excerpt .post-excerpt-content h1,main article.post .post-content h1,main article.page-article>.page-article-content h1{font-size:22.4px}}main article.post-excerpt .post-excerpt-content h2,main article.post .post-content h2,main article.page-article>.page-article-content h2{font-size:24.5px}@media screen and (max-width: 800px){main article.post-excerpt .post-excerpt-content h2,main article.post .post-content h2,main article.page-article>.page-article-content h2{font-size:19.6px}}main article.post-excerpt .post-excerpt-content h3,main article.post .post-content h3,main article.page-article>.page-article-content h3{font-size:21px}@media screen and (max-width: 800px){main article.post-excerpt .post-excerpt-content h3,main article.post .post-content h3,main article.page-article>.page-article-content h3{font-size:16.8px}}main article.post-excerpt .post-excerpt-content h4,main article.post .post-content h4,main article.page-article>.page-article-content h4{font-size:17.5px}@media screen and (max-width: 800px){main article.post-excerpt .post-excerpt-content h4,main article.post .post-content h4,main article.page-article>.page-article-content h4{font-size:14px}}main article.page-article nav.page-article-nav{line-height:2em;margin-bottom:1em;font-size:15.4px}main article.page-article nav.page-article-nav a{white-space:nowrap}main article.page-article nav.page-article-nav a:not(:last-child){margin-right:20px}@media screen and (max-width: 600px){main article.page-article nav.page-article-nav a{display:block}main article.page-article nav.page-article-nav a:not(:last-child){margin-right:0}}main article.post>header.post-header>h1.post-title{margin-bottom:7.5px}main article.post>header.post-header>h1.post-title a{color:inherit}main article.post>header.post-header>h1.post-title a:hover{color:#0D49C3}main article.post>header.post-header>.post-meta>p{color:#444;font-size:12.6px;line-height:1;font-family:"Open Sans","DejaVu Sans","Droid Sans","Verdana","Helvetica Neue",Helvetica,Arial,sans-serif}main article.post>header.post-header>.post-meta span.author{display:none}main article.post>header.post-header>.post-meta>p:not(:last-child){margin-bottom:7.5px}main article.post-excerpt:not(:last-child){margin-bottom:40px}main article.post-excerpt>header.post-excerpt-header>h1.post-excerpt-title{font-size:28px;margin-bottom:7.5px}main article.post-excerpt>header.post-excerpt-header>h1.post-excerpt-title a{color:inherit}main article.post-excerpt>header.post-excerpt-header>h1.post-excerpt-title a:hover{color:#0D49C3}main article.post-excerpt>header.post-excerpt-header>.post-excerpt-meta>p{color:#444;font-size:12.6px;font-family:"Open Sans","DejaVu Sans","Droid Sans","Verdana","Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1;margin-bottom:15px}main article.post-excerpt .post-excerpt-content>p:not(:last-child){margin-bottom:15px}main ul.post-list,main ol.post-list{margin-left:0;list-style:none}main ul.post-list>li,main ol.post-list>li{margin-bottom:30px}main hr{background-color:#444;border:0;height:1px;margin:20px auto;padding:0;width:100%}main #back-to-top{display:flex;flex-wrap:nowrap;justify-content:flex-end;margin:20px 0 10px 0}main #back-to-top img{margin:0}#site-footer{background-color:#212121;font-size:13.3px;font-style:normal;font-weight:normal;padding:20px 0;color:#aaa;position:relative;clear:both}#site-footer .highlight{margin-bottom:0}#site-footer a{color:#aaa}#site-footer cite{color:#ddd}#site-footer>.wrapper{display:flex;justify-content:space-between;align-items:flex-start}#site-footer-notices{flex:0 1 70%}#site-footer-icons{display:flex;flex:1 0 auto;justify-content:flex-end;padding-left:20px;padding-top:6px}#site-footer-icons a{margin:0 10px 15px 0}#site-footer-icons a:last-of-type{margin-right:0}#site-footer-icons img{height:28px;margin:0;border-radius:5px;position:static}#site-footer-icons img:hover{height:34px}#site-footer-icons a:last-child img{margin-right:0}@media screen and (max-width: 600px){#site-footer>.wrapper{display:flex;flex-flow:column nowrap}#site-footer-notices{flex:1 1 100%}#site-footer-icons{padding-left:0;justify-content:flex-start}}.highlight{background:#353739;color:#fff}@media (min-width: 1400px){.highlight{background:#eee;color:#111}}.highlight .c{color:#998;font-style:italic}.highlight .err{color:#a61717;background-color:#e3d2d2}.highlight .k{font-weight:bold}.highlight .o{font-weight:bold}.highlight .cm{color:#998;font-style:italic}.highlight .cp{color:#999;font-weight:bold}.highlight .c1{color:#998;font-style:italic}.highlight .cs{color:#999;font-weight:bold;font-style:italic}.highlight .gd{color:#000;background-color:#fdd}.highlight .gd .x{color:#000;background-color:#faa}.highlight .ge{font-style:italic}.highlight .gr{color:#a00}.highlight .gh{color:#999}.highlight .gi{color:#000;background-color:#dfd}.highlight .gi .x{color:#000;background-color:#afa}.highlight .go{color:#888}.highlight .gp{color:#555}.highlight .gs{font-weight:bold}.highlight .gu{color:#aaa}.highlight .gt{color:#a00}.highlight .kc{font-weight:bold}.highlight .kd{font-weight:bold}.highlight .kp{font-weight:bold}.highlight .kr{font-weight:bold}.highlight .kt{color:#458;font-weight:bold}.highlight .m{color:#099}.highlight .s{color:#d14}.highlight .na{color:#008080}.highlight .nb{color:#0086B3}.highlight .nc{color:#458;font-weight:bold}.highlight .no{color:#008080}.highlight .ni{color:#800080}.highlight .ne{color:#900;font-weight:bold}.highlight .nf{color:#900;font-weight:bold}.highlight .nn{color:#555}.highlight .nt{color:#000080}.highlight .nv{color:#008080}.highlight .ow{font-weight:bold}.highlight .w{color:#bbb}.highlight .mf{color:#099}.highlight .mh{color:#099}.highlight .mi{color:#099}.highlight .mo{color:#099}.highlight .sb{color:#d14}.highlight .sc{color:#d14}.highlight .sd{color:#d14}.highlight .s2{color:#d14}.highlight .se{color:#d14}.highlight .sh{color:#d14}.highlight .si{color:#d14}.highlight .sx{color:#d14}.highlight .sr{color:#009926}.highlight .s1{color:#d14}.highlight .ss{color:#990073}.highlight .bp{color:#999}.highlight .vc{color:#008080}.highlight .vg{color:#008080}.highlight .vi{color:#008080}.highlight .il{color:#099}
+	</style>
+
+	<noscript>
+		<style>body.hidden { display: block !important; }</style>
+	</noscript>
+
+	
+
+	<script>
+		class CompleteReadyStateTasks{constructor(){if(CompleteReadyStateTasks._instance)throw new Error("Multiple instantiation not allowed.");this.tasks=[],this.taskTrain=Promise.resolve(),"complete"!==document.readyState&&document.addEventListener("readystatechange",e=>{"complete"===e.target.readyState&&this._executePendingTasks()}),CompleteReadyStateTasks._instance=this}static getInstance(){return CompleteReadyStateTasks._instance||new CompleteReadyStateTasks,CompleteReadyStateTasks._instance}_executePendingTasks(){let e;for(;e=this.tasks.shift();){const t=e,s=()=>new Promise(e=>requestAnimationFrame(async()=>{await t(),e()}));this.taskTrain=this.taskTrain.then(s)}}_executePendingTasksIfStateComplete(){"complete"===document.readyState&&this._executePendingTasks()}prependTask(e){this.tasks.unshift(e),this._executePendingTasksIfStateComplete()}appendTask(e){this.tasks.push(e),this._executePendingTasksIfStateComplete()}}
+
+		CompleteReadyStateTasks.getInstance().prependTask(() =>
+				document.getElementsByTagName('body')[0].classList.remove('hidden'));
+	</script>
+
+	
+	<link rel="stylesheet" type="text/css" href="/modules/lightbox2/css/lightbox.min.css" />
+	
+</head>
+<body class="hidden">
+	<header id="site-header">
+		<div class="wrapper">
+			<a id="site-title" href="/">konsolebox</a>
+
+			<nav id="site-header-nav">
+				<a id="site-header-nav-trigger" href="#">
+					<svg width="18" height="15" viewBox="0 0 18 15">
+						<path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+						<path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+						<path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+					</svg>
+				</a>
+
+				<div id="site-header-nav-links">
+					
+					
+						
+					
+						
+					
+						
+						<a class="page-link" href="/blog/">
+							Blog
+						</a>
+						
+					
+						
+						<a class="page-link" href="/projects/">
+							Projects
+						</a>
+						
+					
+						
+					
+						
+					
+				</div>
+			</nav>
+		</div>
+
+		<div id="site-header-cover">
+			<img alt="cover photo" title="Cover Photo" src="/images/cover.jpg" />
+		</div>
+	</header>
+
+	<main role="main">
+		<div class="wrapper">
+			<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<header class="post-header">
+		<h1 class="post-title" itemprop="name headline">A set of patches for Geany</h1>
+		<div class="post-meta">
+			<p>
+				<time title="2016-12-03T08:23:41+00:00" datetime="2016-12-03T08:23:41+00:00" itemprop="datePublished">Dec 3, 2016</time>
+				<span class="author">
+					• Author:
+					<a rel="author" href="/about/konsolebox" itemprop="author" itemscope itemtype="http://schema.org/Person">
+						<span itemprop="name">konsolebox</span>
+					</a>
+				</span>
+				<span class="permalink">• <a href="/blog/2016/12/03/a-set-of-patches-for-geany.html" itemprop="url">Permalink</a></span>
+
+
+			</p>
+		</div>
+	</header>
+	<div class="post-content" itemprop="articleBody">
+		<p>Last July, I started creating more <a href="https://github.com/konsolebox/geany/branches">enhancements for Geany</a>, which I didn’t expect to end up being many.  Most of the patches (all actually) haven’t been merged to upstream, so I thought about creating my personal compilation for them instead, and it’s in <a href="https://github.com/konsolebox/geany-patches">geany-patches</a>.</p>
+
+<p>The changes I made basically became stable around August or September, but it was only now that I thought about creating the compilations when I rebased the changes to 1.29, and when I fixed a sneaky bug in the in-place renaming of documents.</p>
+
+<p>The major features provided in these patches include the capability to sort document tabs, and the added commands, or the enhancements added to the commands (both in File-menu and in the Document’s context menu) that enhances opening, closing, saving, reloading, renaming, cloning, and deleting of documents.  See <a href="https://github.com/konsolebox/geany-patches/blob/master/README.md">README.md</a> for the complete list of changes.</p>
+
+<p>These are some of its screenshots:</p>
+
+<style>
+	.screenshots {
+		display: flex;
+		display: -webkit-flex;
+		-webkit-flex-flow: row wrap;
+		flex-flow: row wrap;
+		height: auto;
+		margin: 0 -5px 15px -5px;
+	}
+
+	.screenshots img {
+		margin: 5px;
+	}
+</style>
+
+<div class="screenshots">
+	<a href="/images/geany-patches/snapshots/47aff2b2e9f2e42154577e592aa7d498bb8dea5c.png" data-lightbox="screenshots" data-title=""><img src="/images/geany-patches/snapshots/47aff2b2e9f2e42154577e592aa7d498bb8dea5c-200.jpg" alt="47aff2b2e9f2e42154577e592aa7d498bb8dea5c" /></a>
+	<a href="/images/geany-patches/snapshots/af366bdb91b128175bd9952dff16fd1782e78d29.png" data-lightbox="screenshots" data-title=""><img src="/images/geany-patches/snapshots/af366bdb91b128175bd9952dff16fd1782e78d29-200.jpg" alt="af366bdb91b128175bd9952dff16fd1782e78d29" /></a>
+	<a href="/images/geany-patches/snapshots/be0f4d44a7cded986221a8b4f5b50d409e86fa3a.png" data-lightbox="screenshots" data-title=""><img src="/images/geany-patches/snapshots/be0f4d44a7cded986221a8b4f5b50d409e86fa3a-200.jpg" alt="be0f4d44a7cded986221a8b4f5b50d409e86fa3a" /></a>
+	<a href="/images/geany-patches/snapshots/4219c2f848234990f312fb4f595d116bcf66d588.png" data-lightbox="screenshots" data-title=""><img src="/images/geany-patches/snapshots/4219c2f848234990f312fb4f595d116bcf66d588-200.jpg" alt="4219c2f848234990f312fb4f595d116bcf66d588" /></a>
+	<a href="/images/geany-patches/snapshots/859ca8376b10d557fdb5aede565d222a188c47b3.png" data-lightbox="screenshots" data-title=""><img src="/images/geany-patches/snapshots/859ca8376b10d557fdb5aede565d222a188c47b3-200.jpg" alt="859ca8376b10d557fdb5aede565d222a188c47b3" /></a>
+	<a href="/images/geany-patches/snapshots/d8b72883ee9beda23edcda69c9c10c0ac14bba54.png" data-lightbox="screenshots" data-title=""><img src="/images/geany-patches/snapshots/d8b72883ee9beda23edcda69c9c10c0ac14bba54-200.jpg" alt="d8b72883ee9beda23edcda69c9c10c0ac14bba54" /></a>
+	<a href="/images/geany-patches/snapshots/2e65feef4973ae29cb6727cbb2f9230f478e7eff.png" data-lightbox="screenshots" data-title=""><img src="/images/geany-patches/snapshots/2e65feef4973ae29cb6727cbb2f9230f478e7eff-200.jpg" alt="2e65feef4973ae29cb6727cbb2f9230f478e7eff" /></a>
+</div>
+
+<h2 id="easy-installation-for-gentoo-users">Easy installation for Gentoo users</h2>
+
+<p>If you’re using Gentoo or any of its compatible distros that support <a href="https://wiki.gentoo.org/wiki/Layman">layman</a>, you can build and install the package along with my patches by using my overlay, and enabling the <code class="highlighter-rouge">konsolebox</code> USE flag:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Add the overlay with layman.
+layman -a konsolebox
+
+# Enable the keyword.
+echo 'dev-util/geany::konsolebox' &gt; /etc/portage/package.keywords/dev-util.geany::konsolebox
+
+# Enable the USE flag.
+echo 'dev-util/geany::konsolebox konsolebox' &gt; /etc/portage/package.use/dev-util.geany::konsolebox
+
+# Install.
+emerge -av dev-util/geany::konsolebox
+</code></pre></div></div>
+
+<h2 id="directly-getting-the-patched-source-code">Directly getting the patched source code</h2>
+
+<p>If you like, you can directly fetch the repository where I apply the patches, or download it in a ZIP archive with Github.</p>
+
+<ul>
+  <li><a href="https://github.com/konsolebox/geany/tree/master">master</a></li>
+  <li><a href="https://github.com/konsolebox/geany/tree/master%401.29">master@1.29</a></li>
+  <li><a href="https://github.com/konsolebox/geany/tree/testing">testing</a></li>
+  <li><a href="https://github.com/konsolebox/geany/tree/testing">testing@1.29</a></li>
+</ul>
+
+<p>Testing branches tend have more recent updates, while the master branches are more tested.  But sometimes they’re just patched together when a critical bug is needed to be fixed.</p>
+
+<p>The suffixes like <code class="highlighter-rouge">@1.29</code> refer to the release version of Geany, and the patches are rebased against that version.  These branches don’t include the upstream changes in Geany that were made after the release, unless I explicitly forward some of the critical updates to them.</p>
+
+<p>The branches without those suffixes on the other hand are meant to be updated with the recent changes upstream.</p>
+
+	</div>
+
+	<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function() {
+		this.page.url = 'https://konsolebox.github.io/blog/2016/12/03/a-set-of-patches-for-geany.html';
+		this.page.identifier = 'posts/2016-12-03/a-set-of-patches-for-geany';
+	};
+
+	CompleteReadyStateTasks.getInstance().appendTask(function() {
+		var d = document, s = d.createElement('script');
+		s.src = '//konsolebox.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	});
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+</article>
+
+
+			
+			<div id="back-to-top">
+				<a href="#top"><img alt="Back to top" title="Back to top" src="/images/icons/home.svg" /></a>
+			</div>
+			
+		</div>
+	</main>
+
+	<footer id="site-footer">
+		<div class="wrapper">
+			<div id="site-footer-notices">
+				<p>The contents of this website are &copy; 2025 <a href="mailto:konsolebox@gmail.com"><cite>konsolebox</cite></a> and are published under the terms of <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><cite>Creative Commons Attribution 4.0 International License</cite></a> except where otherwise noted.</p>
+				<p>Site was built using <a href="https://jekyllrb.com/"><cite>Jekyll</cite></a> and <a href="http://octopress.org/"><cite>Octopress</cite></a>, and is hosted by <a href="https://pages.github.com/"><cite>GitHub Pages</cite></a>. HTTPS enabled through <a href="https://www.cloudflare.com/"><cite>Cloudflare</cite></a>.</p>
+			</div>
+			<div id="site-footer-icons">
+				<a href="mailto:konsolebox@gmail.com"><img alt="E-mail" src="/images/icons/email-icon-white.svg" /></a>
+				<a href="https://twitter.com/konsolebox"><img alt="Twitter" src="/images/logos/twitter.svg" /></a>
+				<a href="https://disqus.com/by/konsolebox"><img alt="Disqus" src="/images/logos/disqus.svg" /></a>
+				<a href="https://github.com/konsolebox/"><img alt="GitHub" src="/images/logos/github-mark-light.svg" /></a>
+				<a href="https://stackoverflow.com/users/445221/konsolebox?tab=profile"><img alt="Stack Overflow" src="/images/logos/stack-overflow-trimmed.svg" /></a>
+			</div>
+		</div>
+	</footer>
+
+	
+	<script src="/modules/lightbox2/js/lightbox-plus-jquery.min.js"></script>
+	
+</body>
+</html>
